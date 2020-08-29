@@ -30,8 +30,9 @@ namespace RCTrans.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Имейл адресът е задължителен.")]
+            [EmailAddress(ErrorMessage = "Невалиден имейл адрес.")]
+            [Display(Name = "Имейл адрес:")]
             public string Email { get; set; }
         }
 

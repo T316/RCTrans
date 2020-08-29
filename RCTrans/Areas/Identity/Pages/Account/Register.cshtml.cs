@@ -45,31 +45,30 @@ namespace RCTrans.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage = "Имейл адресът е задължителен.")]
+            [EmailAddress(ErrorMessage = "Невалиден имейл адрес.")]
+            [Display(Name = "Имейл адрес:")]
             public string Email { get; set; }
 
             //[Required]
-            //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 2)]
-            //[Display(Name = "First name")]
+            //[StringLength(50, ErrorMessage = "Името трябва да е между {2} и {1} символа.", MinimumLength = 2)]
+            //[Display(Name = "Име:")]
             //public string FirstName { get; set; }
 
-
             //[Required]
-            //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 2)]
-            //[Display(Name = "Last name")]
+            //[StringLength(50, ErrorMessage = "Фамилиятя трябва да е между {2} и {1} символа.", MinimumLength = 2)]
+            //[Display(Name = "Фамилия:")]
             //public string LastName { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Паролата е задължителна.")]
+            [StringLength(50, ErrorMessage = "Паролата трябва да е между {2} и {1} символа.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Парола:")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Повтори паролата:")]
+            [Compare("Password", ErrorMessage = "Паролата не съвпада.")]
             public string ConfirmPassword { get; set; }
         }
 
