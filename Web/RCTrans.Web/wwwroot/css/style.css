@@ -97,6 +97,10 @@
     padding: 100px 0;
 }
 
+.pages-padding {
+    padding: 50px 0;
+}
+
 .section-title {
     font-size: 15px;
     font-weight: 300;
@@ -129,6 +133,47 @@
         }
 
         .section-title .title-line::before {
+            background-color: #333;
+            content: "";
+            height: 2px;
+            position: absolute;
+            right: -60px;
+            top: 10px;
+            width: 50px;
+        }
+
+.menager-section-title {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+    .menager-section-title h2 {
+        margin-bottom: 10px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .menager-section-title p {
+        margin-top: 10px;
+    }
+
+    .menager-section-title .title-line {
+        color: #ffd000;
+        position: relative;
+    }
+
+        .menager-section-title .title-line::after {
+            background-color: #333;
+            content: "";
+            height: 2px;
+            left: -60px;
+            position: absolute;
+            top: 10px;
+            width: 50px;
+        }
+
+        .menager-section-title .title-line::before {
             background-color: #333;
             content: "";
             height: 2px;
