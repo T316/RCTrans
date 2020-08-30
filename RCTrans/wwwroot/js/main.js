@@ -74,7 +74,7 @@
         });
 
 
-        // Choose Popular Car Isotope
+        // Choose Car Isotope
         $(".popucar-menu a, .home2-car-filter a").click(function () {
 
             $(".popucar-menu a, .home2-car-filter a").removeClass('active');
@@ -86,7 +86,7 @@
             });
 
             return false;
-        }); // Choose Popular Car Isotope End
+        }); // Choose Car Isotope End
 
 
         // Choose Newest Car Isotope
@@ -102,6 +102,20 @@
 
             return false;
         }); // Choose Newest Car Isotope End
+
+        // Choose Autobus Isotope
+        $(".autobus-menu a").click(function () {
+
+            $(".autobus-menu a").removeClass('active');
+            $(this).addClass('active');
+
+            var filterValue = $(this).attr('data-filter');
+            $(".autobus-car-gird").isotope({
+                filter: filterValue
+            });
+
+            return false;
+        }); // Choose Autobus Isotope End
 
 
         // Choose Car Maginific Popup

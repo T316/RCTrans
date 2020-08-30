@@ -2,7 +2,7 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 .home-img {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/pricing-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 90%;
