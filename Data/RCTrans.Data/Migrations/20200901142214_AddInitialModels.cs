@@ -18,7 +18,7 @@
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true)
+                    ImageUrl = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -45,7 +45,7 @@
                     AirConditioner = table.Column<bool>(nullable: false),
                     WinterTyres = table.Column<bool>(nullable: false),
                     ImageURL = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false)
+                    Price = table.Column<decimal>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -68,7 +68,7 @@
                     EndDate = table.Column<DateTime>(nullable: false),
                     Driver = table.Column<bool>(nullable: false),
                     CarInsurance = table.Column<bool>(nullable: false),
-                    Price = table.Column<decimal>(nullable: false)
+                    Price = table.Column<decimal>(nullable: false),
                 },
                 constraints: table =>
                 {

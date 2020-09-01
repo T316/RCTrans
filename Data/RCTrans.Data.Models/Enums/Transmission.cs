@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace RCTrans.Data.Models.Enums
+﻿namespace RCTrans.Data.Models.Enums
 {
     public enum Transmission
     {

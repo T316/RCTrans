@@ -2,8 +2,8 @@
 {
     public enum VehicleType
     {
-        Кола = 1,
-        Бус = 2,
-        Автобус = 3,
+        Car = 1,
+        Bus = 2,
+        Autobus = 3,
     }
 }

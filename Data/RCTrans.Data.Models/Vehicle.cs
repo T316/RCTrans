@@ -1,6 +1,7 @@
 ﻿namespace RCTrans.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using RCTrans.Data.Common.Models;
     using RCTrans.Data.Models.Enums;
@@ -12,8 +13,10 @@
             this.Orders = new HashSet<Order>();
         }
 
+        [Required]
         public string Manufacturer { get; set; }
 
+        [Required]
         public string Model { get; set; }
 
         public int Seats { get; set; }
@@ -24,7 +27,7 @@
 
         public Fuel Fuel { get; set; }
 
-        public VehicleType Type { get; set; }
+        public VehicleType VehicleType { get; set; }
 
         public bool AirConditioner { get; set; }
 

@@ -4,6 +4,10 @@
 
     public interface IVehiclesService
     {
-        IEnumerable<T> GetAll<T>();
+        IEnumerable<T> GetCars<T>();
+
+        IEnumerable<T> GetBuses<T>();
+
+        IEnumerable<T> GetAutobuses<T>();
     }
 }

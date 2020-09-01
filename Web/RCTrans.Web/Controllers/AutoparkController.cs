@@ -22,7 +22,7 @@
         public IActionResult Index()
         {
             var viewModel = new IndexViewModel();
-            var vehicles = this.vehiclesService.GetAll<IndexVehicleViewModel>();
+            var vehicles = this.vehiclesService.GetCars<IndexVehicleViewModel>();
             viewModel.Vehicles = vehicles;
 
             return this.View(viewModel);

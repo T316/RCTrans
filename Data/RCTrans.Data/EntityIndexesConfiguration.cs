@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using RCTrans.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using RCTrans.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

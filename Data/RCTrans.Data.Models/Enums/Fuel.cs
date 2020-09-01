@@ -1,5 +1,6 @@
 ﻿namespace RCTrans.Data.Models.Enums
 {
+
     public enum Fuel
     {
         Бензин = 1,

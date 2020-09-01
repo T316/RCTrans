@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace RCTrans.Data.Migrations
+﻿namespace RCTrans.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class RemoveDriverFromVehicle : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

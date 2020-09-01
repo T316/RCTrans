@@ -52,16 +52,6 @@
             [Display(Name = "Имейл адрес:")]
             public string Email { get; set; }
 
-            //[Required]
-            //[StringLength(50, ErrorMessage = "Името трябва да е между {2} и {1} символа.", MinimumLength = 2)]
-            //[Display(Name = "Име:")]
-            //public string FirstName { get; set; }
-
-            //[Required]
-            //[StringLength(50, ErrorMessage = "Фамилиятя трябва да е между {2} и {1} символа.", MinimumLength = 2)]
-            //[Display(Name = "Фамилия:")]
-            //public string LastName { get; set; }
-
             [Required(ErrorMessage = "Паролата е задължителна.")]
             [StringLength(50, ErrorMessage = "Паролата трябва да е между {2} и {1} символа.", MinimumLength = 6)]
             [DataType(DataType.Password)]
