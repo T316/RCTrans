@@ -3,9 +3,8 @@ namespace RCTrans.Data.Models
 {
     using System;
 
-    using RCTrans.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using RCTrans.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
