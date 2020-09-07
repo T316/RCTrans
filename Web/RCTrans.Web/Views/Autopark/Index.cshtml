@@ -60,7 +60,7 @@
                                                 <div class="single-popular-car">
                                                     <div class="p-car-thumbnails">
                                                         <a class="car-hover" href=@vehicle.ImageURL>
-                                                            <img src=@vehicle.ImageURL alt="JSOFT">
+                                                            <img class="vehicle-index-img" src=@vehicle.ImageURL alt="JSOFT">
                                                         </a>
                                                     </div>
 
@@ -77,6 +77,8 @@
                                                             <a href="#">Места: @vehicle.Seats</a>
                                                             <a href="#">Врати: @vehicle.Doors</a>
                                                         </div>
+
+                                                        <a class="btn theme-btn" asp-area="" asp-controller="Autopark" asp-action="Reserve" asp-route-id="@vehicle.Id">Резервирай</a>
                                                     </div>
                                                 </div>
                                             </div>

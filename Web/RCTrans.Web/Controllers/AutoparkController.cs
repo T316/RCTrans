@@ -3,6 +3,7 @@
     using System.Linq;
 
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Routing;
     using RCTrans.Data.Common.Repositories;
     using RCTrans.Data.Models;
     using RCTrans.Services.Data;
@@ -24,6 +25,13 @@
             var viewModel = new IndexViewModel();
             var vehicles = this.vehiclesService.GetCars<IndexVehicleViewModel>();
             viewModel.Vehicles = vehicles;
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult Reserve(int id)
+        {
+            var viewModel = this.vehiclesService.GetVehicleById<ReserveVehicleViewModel>(id);
 
             return this.View(viewModel);
         }

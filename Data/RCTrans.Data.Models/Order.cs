@@ -22,6 +22,10 @@
 
         public bool CarInsurance { get; set; }
 
+        public bool ChildSeat { get; set; }
+
+        public bool BabySeat { get; set; }
+
         public decimal Price { get; set; }
     }
 }

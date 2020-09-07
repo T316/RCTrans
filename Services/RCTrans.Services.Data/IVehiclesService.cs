@@ -9,5 +9,7 @@
         IEnumerable<T> GetBuses<T>();
 
         IEnumerable<T> GetAutobuses<T>();
+
+        T GetVehicleById<T>(int id);
     }
 }

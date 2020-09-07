@@ -4,13 +4,15 @@
     using RCTrans.Data.Models.Enums;
     using RCTrans.Services.Mapping;
 
-    public class IndexVehicleViewModel : IMapFrom<Vehicle>
+    public class ReserveVehicleViewModel : IMapFrom<Vehicle>
     {
         public int Id { get; set; }
 
         public string Manufacturer { get; set; }
 
         public string Model { get; set; }
+
+        public string AdditionalInfo { get; set; }
 
         public int Seats { get; set; }
 

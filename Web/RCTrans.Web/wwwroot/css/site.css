@@ -100,3 +100,15 @@ body {
 .manager-section-padding {
     padding-top: 50px;
 }
+
+.vehicle-index-img {
+    width: 350px;
+    height: 230px;
+}
+
+.vehicle-reserve-img {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}

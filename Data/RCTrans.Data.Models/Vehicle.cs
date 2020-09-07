@@ -19,6 +19,9 @@
         [Required]
         public string Model { get; set; }
 
+        [Required]
+        public string AdditionalInfo { get; set; }
+
         public int Seats { get; set; }
 
         public int Doors { get; set; }
@@ -28,6 +31,8 @@
         public Fuel Fuel { get; set; }
 
         public VehicleType VehicleType { get; set; }
+
+        public VehicleSubType VehicleSubType { get; set; }
 
         public bool AirConditioner { get; set; }
 

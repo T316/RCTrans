@@ -31,5 +31,10 @@
         {
             return this.vehicleRepository.All().Where(v => v.VehicleType == VehicleType.Autobus).To<T>().ToList();
         }
+
+        public T GetVehicleById<T>(int id)
+        {
+            return this.vehicleRepository.All().Where(v => v.Id == id).To<T>().First();
+        }
     }
 }
