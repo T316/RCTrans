@@ -27,7 +27,6 @@
         </div>
     </div>
     <!--== Preloader Area End ==-->
-
     <!--== Header Area Start ==-->
     <header id="header-area">
         <!--== Header Top Start ==-->
@@ -80,7 +79,18 @@
 
                                 <ul class="flex-grow-1">
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Autopark" asp-action="Index">Автопарк</a>
+                                        <a class="nav-link text-dark">Автопарк</a>
+                                        <ul>
+                                            <li>
+                                                <a class="dark-a" asp-controller="Autopark" asp-action="Cars">Коли</a>
+                                            </li>
+                                            <li>
+                                                <a class="dark-a" asp-area="" asp-controller="Autopark" asp-action="Buses">Бусове</a>
+                                            </li>
+                                            <li>
+                                                <a class="dark-a" asp-area="" asp-controller="Autopark" asp-action="Autobuses">Автобуси</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Контакти</a>
@@ -97,7 +107,7 @@
         <!--== Header Bottom End ==-->
     </header>
     <!--== Header Area End ==-->
-    
+
     @this.RenderBody()
 
     <!--== Footer Area Start ==-->
@@ -171,7 +181,6 @@
         <!-- Footer Bottom End -->
     </section>
     <!--== Footer Area End ==-->
-
     <!--== Scroll Top Area Start ==-->
     <div class="scroll-top">
         <img src="~/img/scroll-top.png" alt="JSOFT">

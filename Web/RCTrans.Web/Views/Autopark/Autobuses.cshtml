@@ -1,0 +1,56 @@
+﻿@model RCTrans.Web.ViewModels.Autopark.IndexViewModel
+@{
+    ViewData["Title"] = "Автопарк";
+}
+
+<section id="choose-car" class="pages-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="autopark-title text-center">
+                    <h2>Избери автобус</h2>
+                    <span class="title-line"><i class="fa fa-car"></i></span>
+                    <p>Изберете най-подходящия за вас или вашия бизнес автобус.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="popucar-menu text-center">
+                <a href="#" data-filter="*" class="active">Всички</a>
+                <a href="#" data-filter=".con" class="">Обикновен</a>
+                <a href="#" data-filter=".hat">Специален</a>
+            </div>
+            <div class="row popular-car-gird" style="position: relative; height: 763.5px;">
+                @foreach (var vehicle in @Model.Vehicles)
+                {
+                    <div class="col-lg-4 col-md-6 con suv mpv" style="position: absolute; left: 0px; top: 0px;">
+                        <div class="single-popular-car">
+                            <div class="p-car-thumbnails">
+                                <a class="car-hover" href=@vehicle.ImageURL>
+                                    <img class="vehicle-index-img" src=@vehicle.ImageURL alt="JSOFT">
+                                </a>
+                            </div>
+
+                            <div class="p-car-content">
+                                <h3>
+                                    <a href="#">@vehicle.Manufacturer @vehicle.Model</a>
+                                    <span class="price"><i class="fa fa-tag"></i> @vehicle.Price</span>
+                                </h3>
+
+                                <h5>@vehicle.Transmission управление</h5>
+
+                                <div class="p-car-feature">
+                                    <a href="#">@vehicle.Fuel</a>
+                                    <a href="#">Места: @vehicle.Seats</a>
+                                    <a href="#">Врати: @vehicle.Doors</a>
+                                </div>
+
+                                <a class="btn theme-btn" asp-area="" asp-controller="Autopark" asp-action="Reserve" asp-route-id="@vehicle.Id">Резервирай</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

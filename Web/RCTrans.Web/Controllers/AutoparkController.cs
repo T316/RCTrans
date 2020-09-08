@@ -20,10 +20,28 @@
             this.vehiclesService = vehiclesService;
         }
 
-        public IActionResult Index()
+        public IActionResult Cars()
         {
             var viewModel = new IndexViewModel();
             var vehicles = this.vehiclesService.GetCars<IndexVehicleViewModel>();
+            viewModel.Vehicles = vehicles;
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult Buses()
+        {
+            var viewModel = new IndexViewModel();
+            var vehicles = this.vehiclesService.GetBuses<IndexVehicleViewModel>();
+            viewModel.Vehicles = vehicles;
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult Autobuses()
+        {
+            var viewModel = new IndexViewModel();
+            var vehicles = this.vehiclesService.GetAutobuses<IndexVehicleViewModel>();
             viewModel.Vehicles = vehicles;
 
             return this.View(viewModel);
