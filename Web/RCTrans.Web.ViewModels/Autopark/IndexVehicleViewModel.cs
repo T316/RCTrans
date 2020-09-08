@@ -20,7 +20,7 @@
 
         public Fuel Fuel { get; set; }
 
-        public VehicleType Type { get; set; }
+        public VehicleSubType VehicleSubType { get; set; }
 
         public bool AirConditioner { get; set; }
 
