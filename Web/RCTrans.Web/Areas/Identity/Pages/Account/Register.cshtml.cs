@@ -52,6 +52,16 @@
             [Display(Name = "Имейл адрес:")]
             public string Email { get; set; }
 
+            [Required(ErrorMessage = "Името е задължителна.")]
+            [StringLength(30, ErrorMessage = "Името трябва да е между {2} и {1} символа.", MinimumLength = 2)]
+            [Display(Name = "Име:")]
+            public string FirstName { get; set; }
+
+            [Required(ErrorMessage = "Фамилията е задължителна.")]
+            [StringLength(30, ErrorMessage = "Фамилията трябва да е между {2} и {1} символа.", MinimumLength = 2)]
+            [Display(Name = "Фамилия:")]
+            public string LastName { get; set; }
+
             [Required(ErrorMessage = "Паролата е задължителна.")]
             [StringLength(50, ErrorMessage = "Паролата трябва да е между {2} и {1} символа.", MinimumLength = 6)]
             [DataType(DataType.Password)]
@@ -76,7 +86,7 @@
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
