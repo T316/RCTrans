@@ -24,20 +24,20 @@
                                         <table class="table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <th>Клас</th>
-                                                    <td>Compact</td>
+                                                    <th>Управление</th>
+                                                    <td>@Model.Transmission</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Гориво</th>
                                                     <td>@Model.Fuel</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Врати</th>
-                                                    <td>@Model.Doors</td>
+                                                    <th>Места</th>
+                                                    <td>@Model.Seats</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Управление</th>
-                                                    <td>@Model.Transmission</td>
+                                                    <th>Врати</th>
+                                                    <td>@Model.Doors</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -47,15 +47,14 @@
                                 <div class="col-lg-6">
                                     <div class="tech-info-list">
                                         <ul>
-                                            <li>ABS</li>
-                                            <li>Air Bags</li>
-                                            <li>Bluetooth</li>
-                                            <li>Car Kit</li>
-                                            <li>GPS</li>
-                                            <li>Music</li>
-                                            <li>Bluetooth</li>
-                                            <li>ABS</li>
-                                            <li>GPS</li>
+                                            <li>Неограничени KM</li>
+                                            <li>Защита от кражба</li>
+                                            <li>Климатик</li>
+                                            @if (Model.WinterTyres)
+                                            {
+                                                <li>Зимни гуми</li>
+                                            }
+                                            <li>ДДС 20%</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -87,6 +86,7 @@
                     </div>
                     <!-- Single Sidebar End -->
                 </div>
+                <button type="submit" class="btn theme-btn">Резервирай</button>
             </div>
             <!-- Sidebar Area End -->
         </div>

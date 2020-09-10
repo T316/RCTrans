@@ -2704,13 +2704,13 @@ body,
 }
 
 .tech-info-list li {
-    float: left;
     position: relative;
-    width: 33.333%;
+    width: 100%;
 }
 
 .tech-info-list ul {
-    line-height: 5;
+    padding: 0px 50px;
+    line-height: 3;
     overflow: hidden;
 }
 

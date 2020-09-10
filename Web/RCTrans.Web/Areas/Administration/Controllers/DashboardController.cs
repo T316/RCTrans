@@ -19,5 +19,15 @@
             var viewModel = new IndexViewModel { SettingsCount = this.settingsService.GetCount(), };
             return this.View(viewModel);
         }
+
+        public IActionResult AddVehicle()
+        {
+            return this.View();
+        }
+
+        public IActionResult AddArticle()
+        {
+            return this.View();
+        }
     }
 }

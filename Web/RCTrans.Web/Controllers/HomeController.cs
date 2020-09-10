@@ -1,8 +1,10 @@
 ﻿namespace RCTrans.Web.Controllers
 {
     using System.Diagnostics;
-
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using RCTrans.Data.Models;
     using RCTrans.Services.Data;
     using RCTrans.Web.ViewModels;
     using RCTrans.Web.ViewModels.Blog;
@@ -10,10 +12,12 @@
     public class HomeController : BaseController
     {
         private readonly IBlogsService blogsService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public HomeController(IBlogsService blogsService)
+        public HomeController(IBlogsService blogsService, UserManager<ApplicationUser> userManager)
         {
             this.blogsService = blogsService;
+            this.userManager = userManager;
         }
 
         public IActionResult Index()
@@ -46,5 +50,12 @@
             return this.View(
                 new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
+
+        // public async Task<IActionResult> AddAdministrator()
+        // {
+        //    var user = await this.userManager.GetUserAsync(this.User);
+        //    var result = await this.userManager.AddToRoleAsync(user, "Administrator");
+        //    return this.Json(result);
+        // }
     }
 }
