@@ -109,6 +109,11 @@ body {
     height: 230px;
 }
 
+.article-index-img {
+    width: 450px;
+    height: 300px;
+}
+
 .vehicle-reserve-img {
     width: 100%;
     height: auto;
@@ -157,3 +162,14 @@ body {
             top: 10px;
             width: 50px;
         }
+
+.article-title {
+    text-align: center;
+}
+
+.article-img {
+    width: 750px;
+    height: 520px;
+    padding: 10px;
+    margin: 30px;
+}

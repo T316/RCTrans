@@ -18,7 +18,12 @@
 
         public IEnumerable<T> GetAllArticles<T>()
         {
-            return this.articleRepository.All().To<T>().ToList();
+            return this.articleRepository.All().OrderByDescending(a => a.CreatedOn).To<T>().ToList();
+        }
+
+        public IEnumerable<T> GetTopThree<T>()
+        {
+            return this.articleRepository.All().OrderByDescending(a => a.CreatedOn).Take(3).To<T>().ToList();
         }
 
         public T GetArticleById<T>(int id)

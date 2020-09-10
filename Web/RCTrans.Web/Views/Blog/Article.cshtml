@@ -1,0 +1,28 @@
+﻿@model RCTrans.Web.ViewModels.Blog.ArticleViewModel
+@{
+    ViewData["Title"] = "Статия";
+}
+
+<section id="car-list-area" class="pages-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="car-details-content article-title">
+                    <h2>@Model.Title</h2>
+                    <div>
+                        <img class="img-thumbnail article-img" src="@Model.ImageUrl" alt="JSOFT">
+                    </div>
+                    <div class="car-details-info blog-content">
+                            @foreach (var item in @Model.Content.Split('\n'))
+                            {
+                                <p>
+                                    @item
+                                </p>
+                            }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

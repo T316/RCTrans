@@ -21,5 +21,12 @@
 
             return this.View(viewModel);
         }
+
+        public IActionResult Article(int id)
+        {
+            var viewModel = this.blogsService.GetArticleById<ArticleViewModel>(id);
+
+            return this.View(viewModel);
+        }
     }
 }

@@ -6,6 +6,8 @@
     {
         IEnumerable<T> GetAllArticles<T>();
 
+        IEnumerable<T> GetTopThree<T>();
+
         T GetArticleById<T>(int id);
     }
 }

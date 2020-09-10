@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Globalization;
+@model RCTrans.Web.ViewModels.Blog.IndexViewModel
+@{
     ViewData["Title"] = "RCTrans";
 }
 
@@ -14,7 +16,6 @@
     </div>
 </section>
 <!--== SlideshowBg Area End ==-->
-
 <!--== About Us Area Start ==-->
 <section id="about-area" class="section-padding">
     <div class="container">
@@ -87,7 +88,6 @@
     </div>
 </section>
 <!--== About Us Area End ==-->
-
 <!--== Partner Area Start ==-->
 <div id="partner-area">
     <div class="container-fluid">
@@ -163,7 +163,6 @@
     </div>
 </div>
 <!--== Partner Area End ==-->
-
 <!--== Services Area Start ==-->
 <section id="service-area" class="section-padding">
     <div class="container">
@@ -213,7 +212,6 @@
     </div>
 </section>
 <!--== Services Area End ==-->
-
 <!--== Fun Fact Area Start ==-->
 <section id="funfact-area" class="overlay section-padding">
     <div class="container">
@@ -267,7 +265,6 @@
     </div>
 </section>
 <!--== Fun Fact Area End ==-->
-
 <!--== Articles Area Start ==-->
 <section id="tips-article-area" class="section-padding">
     <div class="container">
@@ -284,122 +281,107 @@
 
         <!-- Articles Content Wrap Start -->
         <div class="row">
-            <!-- Single Articles Start -->
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/arti-thumb-4.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        <h3><a href="article-details.html">Wliquam sit amet urna eullam</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Admin</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>10</span></a>
+            @{
+                int iteration = 1;
+            }
+            @foreach (var article in @Model.Articles)
+            {
+                @if (iteration % 2 == 1)
+                {
+                    <div class="col-lg-12">
+                        <article class="single-article">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="article-thumb">
+                                        <img class="article-index-img" src="@article.ImageUrl" alt="JSOFT">
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="display-table">
+                                        <div class="display-table-cell">
+                                            <div class="article-body">
+                                                <h3><a href="article-details.html">@article.Title</a></h3>
+                                                <div class="article-meta">
+                                                    @*<a href="#" class="author">By :: <span>Admin</span></a>
+                                                        <a href="#" class="commnet">Comments :: <span>10</span></a>*@
+                                                </div>
+
+                                                <div class="article-date">@article.CreatedOn.Date.Day <span class="month">@article.CreatedOn.ToString("MMM", CultureInfo.CreateSpecificCulture("bg-BG"))</span></div>
+
+                                                <p>
+                                                    @if (article.Content.Length > 250)
+                                                    {
+
+                                                        string content = string.Join("", article.Content.Take(247).ToArray()).Trim() + "...";
+                                                        @content;
+                                                    }
+                                                    else
+                                                    {
+                                                        @article.Content
+                                                    }
+                                                </p>
+
+                                                <a class="readmore-btn" asp-area="" asp-controller="Blog" asp-action="Article" asp-route-id="@article.Id">Прочети <i class="fa fa-long-arrow-right"></i></a>
+                                            </div>
                                         </div>
-
-                                        <div class="article-date">25 <span class="month">jan</span></div>
-
-                                        <p>Wlam aiber vestibulum fringilla oremedad ipsum dolor sit amet consectetur adipisicing elit sed doned eiusmod tempored incididunt ut labore et dolore magna aliquaa enimd ad minim veniad.</p>
-
-                                        <a href="article-details.html" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Articles Content End -->
+                        </article>
                     </div>
-                </article>
-            </div>
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
+                }
+                else
+                {
+                    <div class="col-lg-12">
+                        <article class="single-article middle">
+                            <div class="row">
+                                <div class="col-lg-5 d-xl-none">
+                                    <div class="article-thumb">
+                                        <img class="article-index-img" src="@article.ImageUrl" alt="JSOFT">
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="display-table">
+                                        <div class="display-table-cell">
+                                            <div class="article-body">
+                                                <h3><a href="article-details.html">@article.Title</a></h3>
+                                                <div class="article-meta">
+                                                    @*<a href="#" class="author">By :: <span>Admin</span></a>
+                                                        <a href="#" class="commnet">Comments :: <span>10</span></a>*@
+                                                </div>
 
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/arti-thumb-2.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        <h3><a href="article-details.html">fringilla oremedad ipsum dolor sit</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Admin</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>10</span></a>
+                                                <div class="article-date">@article.CreatedOn.Date.Day <span class="month">@article.CreatedOn.ToString("MMM", CultureInfo.CreateSpecificCulture("bg-BG"))</span></div>
+
+                                                <p>
+                                                    @if (article.Content.Length > 250)
+                                                    {
+
+                                                        string content = string.Join("", article.Content.Take(247).ToArray()).Trim() + "...";
+                                                        @content;
+                                                    }
+                                                    else
+                                                    {
+                                                        @article.Content
+                                                    }
+                                                </p>
+
+                                                <a class="readmore-btn" asp-area="" asp-controller="Blog" asp-action="Article" asp-route-id="@article.Id">Прочети <i class="fa fa-long-arrow-right"></i></a>
+                                            </div>
                                         </div>
-
-                                        <div class="article-date">14<span class="month">feb</span></div>
-
-                                        <p>Wlam aiber vestibulum fringilla oremedad ipsum dolor sit amet consectetur adipisicing elit sed doned eiusmod tempored incididunt ut labore et dolore magna aliquaa enimd ad minim veniad.</p>
-
-                                        <a href="article-details.html" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-none d-xl-block">
+                                    <div class="article-thumb">
+                                        <img class="article-index-img" src="@article.ImageUrl" alt="JSOFT">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Articles Content End -->
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/arti-thumb-2.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
+                        </article>
                     </div>
-                </article>
-            </div>
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/arti-thumb-3.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        <h3><a href="article-details.html">Tempored incididunt ut labore</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Admin</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>10</span></a>
-                                        </div>
+                }
 
-                                        <div class="article-date">17 <span class="month">feb</span></div>
-
-                                        <p>Wlam aiber vestibulum fringilla oremedad ipsum dolor sit amet consectetur adipisicing elit sed doned eiusmod tempored incididunt ut labore et dolore magna aliquaa enimd ad minim veniad.</p>
-
-                                        <a href="article-details.html" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Articles Content End -->
-                    </div>
-                </article>
-            </div>
-            <!-- Single Articles End -->
+                iteration++;
+            }
         </div>
         <!-- Articles Content Wrap End -->
     </div>
