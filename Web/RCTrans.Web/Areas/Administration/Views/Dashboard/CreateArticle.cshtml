@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RCTrans.Web.ViewModels.Blog.ArticleCreateInputModel
+@{
     ViewData["Title"] = "Довавяне на статия";
 }
 
@@ -12,18 +13,20 @@
             </div>
         </div>
         <form method="post">
-            @*<div asp-validation-summary="All" class="text-danger"></div>*@
             <div class="theme-form">
-                <label>Заглавие</label>
-                <input />
+                <label asp-for="Title"></label>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="theme-form">
-                <label>Съдържание</label>
-                <textarea rows="8"></textarea>
+                <label asp-for="Content"></label>
+                <textarea rows="8" asp-for="Content"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="theme-form">
-                <label>Картинка</label>
-                <input />
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
             <button type="submit" class="btn theme-btn">Добави</button>
         </form>

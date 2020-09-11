@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using RCTrans.Data.Common.Repositories;
     using RCTrans.Data.Models;
@@ -29,6 +30,21 @@
         public T GetArticleById<T>(int id)
         {
             return this.articleRepository.All().Where(a => a.Id == id).To<T>().First();
+        }
+
+        public async Task<int> CreateAsync(string title, string content, string imageUrl)
+        {
+            var article = new Article
+            {
+                Title = title,
+                Content = content,
+                ImageUrl = imageUrl,
+            };
+
+            await this.articleRepository.AddAsync(article);
+            await this.articleRepository.SaveChangesAsync();
+
+            return article.Id;
         }
     }
 }
