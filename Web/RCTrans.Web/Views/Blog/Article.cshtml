@@ -14,12 +14,7 @@
                         <img class="img-thumbnail article-img" src="@Model.ImageUrl" alt="JSOFT">
                     </div>
                     <div class="car-details-info blog-content">
-                            @foreach (var item in @Model.Content.Split('\n'))
-                            {
-                                <p>
-                                    @item
-                                </p>
-                            }
+                        @Html.Raw(Model.Content)
                     </div>
                 </div>
             </div>

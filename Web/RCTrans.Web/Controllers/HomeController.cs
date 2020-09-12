@@ -2,20 +2,28 @@
 {
     using System.Diagnostics;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Data.Models;
     using RCTrans.Services.Data;
+    using RCTrans.Services.Messaging;
     using RCTrans.Web.ViewModels;
     using RCTrans.Web.ViewModels.Blog;
+    using RCTrans.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
+        private readonly IEmailSender emailSender;
         private readonly IBlogsService blogsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public HomeController(IBlogsService blogsService, UserManager<ApplicationUser> userManager)
+        public HomeController(
+            IEmailSender emailSender,
+            IBlogsService blogsService,
+            UserManager<ApplicationUser> userManager)
         {
+            this.emailSender = emailSender;
             this.blogsService = blogsService;
             this.userManager = userManager;
         }
@@ -41,6 +49,21 @@
 
         public IActionResult Contacts()
         {
+            return this.View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Contacts(ContactsInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            await this.emailSender
+                .SendEmailAsync(input.Email, input.FullName, "todor.yordanov93@gmail.com", "RCTrans", input.Content);
+
             return this.View();
         }
 

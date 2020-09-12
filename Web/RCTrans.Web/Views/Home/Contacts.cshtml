@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RCTrans.Web.ViewModels.Home.ContactsInputModel
+@{
     ViewData["Title"] = "Контакти";
 }
 
@@ -16,26 +17,30 @@
         <div class="row">
             <div class="col-lg-10 m-auto">
                 <div class="theme-form">
-                    <form action="#">
+
+                    <form method="post">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <div class="name-input">
-                                    <label for="names">Име и фамилия::</label>
-                                    <input type="text" id="names">
+                                <div class="theme-form">
+                                    <label asp-for="FullName"></label>
+                                    <input asp-for="FullName" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
-                                <div class="email-input">
-                                    <label for="email">Имейл адрес:</label>
-                                    <input type="email" id="email">
+                                <div class="theme-form">
+                                    <label asp-for="Email"></label>
+                                    <input asp-for="Email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="message-input">
-                            <label for="message">Съобщение:</label>
-                            <textarea name="review" cols="30" rows="10" id="message"></textarea>
+                        <div class="theme-form">
+                            <label asp-for="Content"></label>
+                            <textarea rows="10" asp-for="Content"></textarea>
+                            <span asp-validation-for="Content" class="text-danger"></span>
                         </div>
 
                         <div>

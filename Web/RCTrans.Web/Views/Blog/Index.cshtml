@@ -42,16 +42,7 @@
                                                 <div class="article-date">@article.CreatedOn.Date.Day <span class="month">@article.CreatedOn.ToString("MMM", CultureInfo.CreateSpecificCulture("bg-BG"))</span></div>
 
                                                 <p>
-                                                    @if (article.Content.Length > 250)
-                                                    {
-
-                                                        string content = string.Join("", article.Content.Take(247).ToArray()).Trim() + "...";
-                                                        @content;
-                                                    }
-                                                    else
-                                                    {
-                                                        @article.Content
-                                                    }
+                                                    @Html.Raw(article.ShortSanitizedContent)
                                                 </p>
 
                                                 <a class="readmore-btn" asp-area="" asp-controller="Blog" asp-action="Article" asp-route-id="@article.Id">Прочети <i class="fa fa-long-arrow-right"></i></a>
@@ -86,16 +77,7 @@
                                                 <div class="article-date">@article.CreatedOn.Date.Day <span class="month">@article.CreatedOn.ToString("MMM", CultureInfo.CreateSpecificCulture("bg-BG"))</span></div>
 
                                                 <p>
-                                                    @if (article.Content.Length > 250)
-                                                    {
-
-                                                        string content = string.Join("", article.Content.Take(247).ToArray()).Trim() + "...";
-                                                        @content;
-                                                    }
-                                                    else
-                                                    {
-                                                        @article.Content
-                                                    }
+                                                    @Html.Raw(article.ShortSanitizedContent)
                                                 </p>
 
                                                 <a class="readmore-btn" asp-area="" asp-controller="Blog" asp-action="Article" asp-route-id="@article.Id">Прочети <i class="fa fa-long-arrow-right"></i></a>
