@@ -2768,7 +2768,8 @@ body,
     .theme-form input,
     .review-area input,
     .theme-form textarea,
-    .review-area textarea {
+    .review-area textarea,
+    .theme-form select {
         background-color: #fafafa;
         border: 1px solid #eaeaea;
         color: #000;
@@ -2780,7 +2781,8 @@ body,
         .theme-form input:focus,
         .review-area input:focus,
         .theme-form textarea:focus,
-        .review-area textarea:focus {
+        .review-area textarea:focus,
+        .theme-form select:focus {
             border-color: #ffd000;
         }
 

@@ -64,7 +64,7 @@
             await this.emailSender
                 .SendEmailAsync(input.Email, input.FullName, "todor.yordanov93@gmail.com", "RCTrans", input.Content);
 
-            return this.View();
+            return this.Redirect("/Home/Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,4 +1,5 @@
-﻿
+﻿@using RCTrans.Data.Models.Enums
+@model RCTrans.Web.ViewModels.Administration.Dashboard.VehicleCreateInputModel
 @{
     ViewData["Title"] = "Добавяне на амтомобил";
 }
@@ -13,19 +14,73 @@
             </div>
         </div>
         <form method="post">
-            @*<div asp-validation-summary="All" class="text-danger"></div>*@
             <div class="theme-form">
-                <label>Марка</label>
-                <input />
+                <label asp-for="Manufacturer"></label>
+                <input asp-for="Manufacturer" />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
             </div>
             <div class="theme-form">
-                <label>Модел</label>
-                <input />
+                <label asp-for="Model"></label>
+                <input asp-for="Model" />
+                <span asp-validation-for="Model" class="text-danger"></span>
             </div>
             <div class="theme-form">
-                <label>Снимка</label>
-                <input />
+                <label asp-for="AdditionalInfo"></label>
+                <input asp-for="AdditionalInfo" />
+                <span asp-validation-for="AdditionalInfo" class="text-danger"></span>
             </div>
+            <div class="theme-form">
+                <label asp-for="Seats"></label>
+                <input asp-for="Seats" />
+                <span asp-validation-for="Seats" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="Doors"></label>
+                <input asp-for="Doors" />
+                <span asp-validation-for="Doors" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="Transmission"></label>
+                <select asp-for="Transmission" asp-items="Html.GetEnumSelectList<Transmission>()"></select>
+                <span asp-validation-for="Transmission" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="Fuel"></label>
+                <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<Fuel>()"></select>
+                <span asp-validation-for="Fuel" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="VehicleType"></label>
+                <select asp-for="VehicleType" asp-items="Html.GetEnumSelectList<VehicleType>()"></select>
+                <span asp-validation-for="VehicleType" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="VehicleSubType"></label>
+                <select asp-for="VehicleSubType" asp-items="Html.GetEnumSelectList<VehicleSubType>()"></select>
+                <span asp-validation-for="VehicleSubType" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="ImageURL"></label>
+                <input asp-for="ImageURL" />
+                <span asp-validation-for="ImageURL" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="theme-form">
+                <label asp-for="AirConditioner"></label>
+                <input asp-for="AirConditioner" class="checkBox"/>
+                <span asp-validation-for="AirConditioner" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="WinterTyres"></label>
+                <input asp-for="WinterTyres" class="checkBox"/>
+                <span asp-validation-for="WinterTyres" class="text-danger"></span>
+            </div>
+
             <button type="submit" class="btn theme-btn">Добави</button>
         </form>
     </div>

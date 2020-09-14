@@ -10,23 +10,23 @@
     public class DashboardController : AdministrationController
     {
         private readonly ISettingsService settingsService;
-        private readonly IBlogsService blogService;
+        private readonly IBlogsService blogsService;
+        private readonly IVehiclesService vehiclesService;
 
-        public DashboardController(ISettingsService settingsService, IBlogsService blogService)
+        public DashboardController(
+            ISettingsService settingsService,
+            IBlogsService blogsService,
+            IVehiclesService vehiclesService)
         {
             this.settingsService = settingsService;
-            this.blogService = blogService;
+            this.blogsService = blogsService;
+            this.vehiclesService = vehiclesService;
         }
 
         public IActionResult Index()
         {
             var viewModel = new ViewModels.Administration.Dashboard.IndexViewModel { SettingsCount = this.settingsService.GetCount(), };
             return this.View(viewModel);
-        }
-
-        public IActionResult CreateVehicle()
-        {
-            return this.View();
         }
 
         public IActionResult CreateArticle()
@@ -42,9 +42,40 @@
                 return this.View(input);
             }
 
-            var articleId = await this.blogService.CreateAsync(input.Title, input.Content, input.ImageUrl);
+            var articleId = await this.blogsService.CreateAsync(input.Title, input.Content, input.ImageUrl);
 
             return this.Redirect($"/Blog/Article/{articleId}");
+        }
+
+        public IActionResult CreateVehicle()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateVehicle(VehicleCreateInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            var vehicleId = await this.vehiclesService.CreateAsync(
+                input.Manufacturer,
+                input.Model,
+                input.AdditionalInfo,
+                input.Seats,
+                input.Doors,
+                input.Transmission,
+                input.Fuel,
+                input.VehicleType,
+                input.VehicleSubType,
+                input.ImageURL,
+                input.Price,
+                input.AirConditioner,
+                input.WinterTyres);
+
+            return this.Redirect($"/Autopark/Reserve/{vehicleId}");
         }
     }
 }
