@@ -1,4 +1,5 @@
-﻿@model RCTrans.Web.ViewModels.Autopark.ReserveVehicleViewModel
+﻿@using RCTrans.Data.Models.Enums
+@model RCTrans.Web.ViewModels.Autopark.ReserveVehicleViewModel
 @{
     ViewData["Title"] = "Резервирай";
 }
@@ -25,11 +26,11 @@
                                             <tbody>
                                                 <tr>
                                                     <th>Управление</th>
-                                                    <td>@Model.Transmission</td>
+                                                    <td>@Model.Transmission.GetDisplayName()</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Гориво</th>
-                                                    <td>@Model.Fuel</td>
+                                                    <td>@Model.Fuel.GetDisplayName()</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Места</th>

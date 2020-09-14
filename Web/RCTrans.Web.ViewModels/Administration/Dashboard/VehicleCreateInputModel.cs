@@ -51,13 +51,12 @@
         [Display(Name = "Зимни гуми")]
         public bool WinterTyres { get; set; }
 
-        [Required(ErrorMessage = "Картинката е задължителна.")]
-        [Display(Name = "Картинка")]
-        public string ImageURL { get; set; }
-
         [Required(ErrorMessage = "Цената е задължителна.")]
         [Range(20, 10000)]
         [Display(Name = "Цена")]
         public decimal Price { get; set; }
+
+        [Display(Name = "Картинка")]
+        public string ImageURL { get; set; }
     }
 }

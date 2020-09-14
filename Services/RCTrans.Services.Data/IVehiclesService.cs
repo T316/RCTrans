@@ -25,8 +25,8 @@
             Fuel fuel,
             VehicleType vehicleType,
             VehicleSubType vehicleSubType,
-            string imageURL,
             decimal price,
+            string imageURL,
             bool airConditioner,
             bool winterTyres);
     }

@@ -1,10 +1,14 @@
 ﻿namespace RCTrans.Data.Models.Enums
 {
+    using System.ComponentModel.DataAnnotations;
 
     public enum Fuel
     {
-        Бензин = 1,
-        Дизел = 2,
-        Газ = 3,
+        [Display(Name = "Бензин")]
+        Petrol = 1,
+        [Display(Name = "Дизел")]
+        Diesel = 2,
+        [Display(Name = "Газ")]
+        Gas = 3,
     }
 }

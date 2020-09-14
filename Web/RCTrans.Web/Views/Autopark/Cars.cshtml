@@ -1,4 +1,5 @@
-﻿@model RCTrans.Web.ViewModels.Autopark.IndexViewModel
+﻿@using RCTrans.Data.Models.Enums
+@model RCTrans.Web.ViewModels.Autopark.IndexViewModel
 @{
     ViewData["Title"] = "Автопарк";
 }
@@ -29,7 +30,7 @@
                     <div class="col-lg-4 col-md-6 @vehicle.VehicleSubType.ToString().ToLower()" style="position: absolute; left: 0px; top: 0px;">
                         <div class="single-popular-car">
                             <div class="p-car-thumbnails">
-                                <a class="car-hover" href=@vehicle.ImageURL>
+                                <a class="car-hover vehicle-index-img" href=@vehicle.ImageURL>
                                     <img class="vehicle-index-img" src=@vehicle.ImageURL alt="JSOFT">
                                 </a>
                             </div>
@@ -40,10 +41,10 @@
                                     <span class="price"><i class="fa fa-tag"></i> @vehicle.Price</span>
                                 </h3>
 
-                                <h5>@vehicle.Transmission управление</h5>
+                                <h5>@vehicle.Transmission.GetDisplayName() управление</h5>
 
                                 <div class="p-car-feature">
-                                    <a href="#">@vehicle.Fuel</a>
+                                    <a href="#">@vehicle.Fuel.GetDisplayName()</a>
                                     <a href="#">Места: @vehicle.Seats</a>
                                     <a href="#">Врати: @vehicle.Doors</a>
                                 </div>

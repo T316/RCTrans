@@ -69,15 +69,15 @@
                 <input asp-for="ImageURL" />
                 <span asp-validation-for="ImageURL" class="text-danger"></span>
             </div>
-            <br/>
+            <br />
             <div class="theme-form">
                 <label asp-for="AirConditioner"></label>
-                <input asp-for="AirConditioner" class="checkBox"/>
+                <input asp-for="AirConditioner" class="checkBox" />
                 <span asp-validation-for="AirConditioner" class="text-danger"></span>
             </div>
             <div class="theme-form">
                 <label asp-for="WinterTyres"></label>
-                <input asp-for="WinterTyres" class="checkBox"/>
+                <input asp-for="WinterTyres" class="checkBox" />
                 <span asp-validation-for="WinterTyres" class="text-danger"></span>
             </div>
 
@@ -85,3 +85,80 @@
         </form>
     </div>
 </div>
+
+@section Scripts
+{
+    <script>
+        function onLoad() {
+            let vehicleSubTypeEl = document.getElementById('VehicleSubType');
+            vehicleSubTypeEl.innerHTML = "";
+
+            let optionEl = el('option', 'Хечбек', { value: 1 });
+            let optionEl2 = el('option', 'Седан', { value: 2 });
+            let optionEl3 = el('option', 'Комби', { value: 3 });
+            let optionEl4 = el('option', 'Джип', { value: 4 });
+            let optionEl5 = el('option', 'Пикап', { value: 5 });
+            vehicleSubTypeEl.appendChild(optionEl);
+            vehicleSubTypeEl.appendChild(optionEl2);
+            vehicleSubTypeEl.appendChild(optionEl3);
+            vehicleSubTypeEl.appendChild(optionEl4);
+            vehicleSubTypeEl.appendChild(optionEl5);
+
+            $('#VehicleType').on('change', function () {
+                let selected = $('#VehicleType option:selected').index();
+
+                vehicleSubTypeEl.innerHTML = "";
+
+                if (selected === 0) {
+                    let optionEl = el('option', 'Хечбек', { value: 1 });
+                    let optionEl2 = el('option', 'Седан', { value: 2 });
+                    let optionEl3 = el('option', 'Комби', { value: 3 });
+                    let optionEl4 = el('option', 'Джип', { value: 4 });
+                    let optionEl5 = el('option', 'Пикап', { value: 5 });
+                    vehicleSubTypeEl.appendChild(optionEl);
+                    vehicleSubTypeEl.appendChild(optionEl2);
+                    vehicleSubTypeEl.appendChild(optionEl3);
+                    vehicleSubTypeEl.appendChild(optionEl4);
+                    vehicleSubTypeEl.appendChild(optionEl5);
+                } else if (selected === 1) {
+                    let optionEl = el('option', 'Мини ван', { value: 6 });
+                    let optionEl2 = el('option', 'Товарен бус', { value: 7 });
+                    vehicleSubTypeEl.appendChild(optionEl);
+                    vehicleSubTypeEl.appendChild(optionEl2);
+
+                } else if (selected === 2) {
+                    let optionEl = el('option', 'Автобус', { value: 8 });
+                    let optionEl2 = el('option', 'Специален автобус', { value: 9 });
+                    vehicleSubTypeEl.appendChild(optionEl);
+                    vehicleSubTypeEl.appendChild(optionEl2);
+                }
+            });
+        }
+        window.onload = onLoad;
+
+
+
+        function el(type, content, attributes) {
+            const result = document.createElement(type);
+
+            if (attributes !== undefined) {
+                Object.assign(result, attributes);
+            }
+
+            if (Array.isArray(content)) {
+                content.forEach(append);
+            } else {
+                append(content);
+            }
+
+            function append(node) {
+                if (typeof node === 'string') {
+                    node = document.createTextNode(node);
+                }
+                result.appendChild(node);
+            }
+
+            return result;
+        }
+    </script>
+}

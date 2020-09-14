@@ -1,5 +1,6 @@
 ﻿namespace RCTrans.Web.Areas.Administration.Controllers
 {
+    using System.Data;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
@@ -70,8 +71,8 @@
                 input.Fuel,
                 input.VehicleType,
                 input.VehicleSubType,
-                input.ImageURL,
                 input.Price,
+                input.ImageURL,
                 input.AirConditioner,
                 input.WinterTyres);
 
