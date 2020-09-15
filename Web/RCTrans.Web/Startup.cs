@@ -18,6 +18,7 @@
     using RCTrans.Data.Repositories;
     using RCTrans.Data.Seeding;
     using RCTrans.Services.Data;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Services.Mapping;
     using RCTrans.Services.Messaging;
     using RCTrans.Web.ViewModels;
@@ -66,6 +67,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IVehiclesService, VehiclesService>();
             services.AddTransient<IBlogsService, BlogsService>();
+            services.AddTransient<IOrdersService, OrdersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

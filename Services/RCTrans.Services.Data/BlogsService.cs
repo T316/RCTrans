@@ -6,6 +6,7 @@
 
     using RCTrans.Data.Common.Repositories;
     using RCTrans.Data.Models;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Services.Mapping;
 
     public class BlogsService : IBlogsService

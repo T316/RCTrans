@@ -5,6 +5,11 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using CommandLine;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using RCTrans.Data;
     using RCTrans.Data.Common;
     using RCTrans.Data.Common.Repositories;
@@ -12,14 +17,8 @@
     using RCTrans.Data.Repositories;
     using RCTrans.Data.Seeding;
     using RCTrans.Services.Data;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Services.Messaging;
-
-    using CommandLine;
-
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
 
     public static class Program
     {

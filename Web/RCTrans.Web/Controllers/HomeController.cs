@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Data.Models;
-    using RCTrans.Services.Data;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Services.Messaging;
     using RCTrans.Web.ViewModels;
     using RCTrans.Web.ViewModels.Blog;
@@ -51,7 +51,6 @@
         {
             return this.View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Contacts(ContactsInputModel input)

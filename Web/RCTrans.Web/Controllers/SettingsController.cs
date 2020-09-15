@@ -7,7 +7,7 @@
 
     using RCTrans.Data.Common.Repositories;
     using RCTrans.Data.Models;
-    using RCTrans.Services.Data;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Settings;
 
     public class SettingsController : BaseController

@@ -1,7 +1,7 @@
 ﻿namespace RCTrans.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using RCTrans.Services.Data;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Blog;
 
     public class BlogController : BaseController

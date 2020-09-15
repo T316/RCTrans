@@ -20,7 +20,7 @@
             {
                 var shortContent =
                     this.Content.Length > 250
-                    ? this.Content.Substring(0, 250) + "..."
+                    ? this.Content.Substring(0, 250).ToString().Trim() + "..."
                     : this.Content;
 
                 var shortSanitizedContent = new HtmlSanitizer().Sanitize(shortContent);

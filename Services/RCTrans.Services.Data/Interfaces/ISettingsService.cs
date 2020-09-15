@@ -1,4 +1,4 @@
-﻿namespace RCTrans.Services.Data
+﻿namespace RCTrans.Services.Data.Interfaces
 {
     using System.Collections.Generic;
 

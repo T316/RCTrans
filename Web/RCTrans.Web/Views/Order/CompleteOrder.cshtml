@@ -1,0 +1,72 @@
+﻿@using System.Globalization;
+@model RCTrans.Web.ViewModels.Order.OrderStoreModel
+@{
+    ViewData["Title"] = "Завърши резервация";
+}
+
+
+<div class="row pages-padding">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="col-lg-12">
+            <div class="menager-section-title text-center">
+                <h5>@Model.Vehicle.Manufacturer @Model.Vehicle.Model</h5>
+                <span class="title-line"><i class="fa fa-car"></i></span>
+
+                @{
+                    var days = (Model.EndDate - Model.StartDate).Days;
+                }
+                @if (days > 1)
+                {
+                    <p>Наем: @days дни</p>
+                }
+                else
+                {
+                    <p>1 ден</p>
+                }
+                <p>Дата на наемане: @Model.StartDate.ToString(CultureInfo.CreateSpecificCulture("bg-BG"))</p>
+                <p>Дата на връщане: @Model.EndDate.ToString(CultureInfo.CreateSpecificCulture("bg-BG"))</p>
+            </div>
+        </div>
+        <form method="post" class="text-center">
+            <div class="tech-info-list">
+                <ul>
+                    <li>Неограничени KM</li>
+                    @if (Model.CarInsurance)
+                    {
+                        <li>Пълна застраховка</li>
+                    }
+                    else
+                    {
+                        <li>Защита от кражба</li>
+                    }
+                    @if (Model.Driver)
+                    {
+                        <li>Професионален шофьор</li>
+                    }
+                    <li>Климатик</li>
+                    @if (Model.Vehicle.WinterTyres)
+                    {
+                        <li>Зимни гуми</li>
+                    }
+                    @if (Model.ChildSeat)
+                    {
+                        <li>Детско столче</li>
+                    }
+                    @if (Model.BabySeat)
+                    {
+                        <li>Бебешко столче</li>
+                    }
+                </ul>
+            </div>
+
+            <br />
+            <br />
+            <h5>Цена: @Model.Price лв.</h5>
+            <br />
+
+            <button type="submit" class="btn theme-btn">Резервирай</button>
+        </form>
+    </div>
+</div>
+

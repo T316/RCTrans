@@ -1,13 +1,7 @@
 ﻿namespace RCTrans.Web.Controllers
 {
-    using System.Linq;
-
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Routing;
-    using RCTrans.Data.Common.Repositories;
-    using RCTrans.Data.Models;
-    using RCTrans.Services.Data;
-    using RCTrans.Services.Mapping;
+    using RCTrans.Services.Data.Interfaces;
 
     using RCTrans.Web.ViewModels.Autopark;
 
@@ -47,7 +41,7 @@
             return this.View(viewModel);
         }
 
-        public IActionResult Reserve(int id)
+        public IActionResult Details(int id)
         {
             var viewModel = this.vehiclesService.GetVehicleById<ReserveVehicleViewModel>(id);
 

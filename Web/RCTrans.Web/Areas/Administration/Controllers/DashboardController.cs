@@ -1,10 +1,9 @@
 ﻿namespace RCTrans.Web.Areas.Administration.Controllers
 {
-    using System.Data;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
-    using RCTrans.Services.Data;
+    using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Administration.Dashboard;
     using RCTrans.Web.ViewModels.Blog;
 
