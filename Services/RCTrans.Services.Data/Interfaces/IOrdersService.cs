@@ -27,5 +27,7 @@
             decimal price);
 
         IEnumerable<T> GetOrdersByUserId<T>(string userId);
+
+        IEnumerable<T> GetAllOrders<T>();
     }
 }

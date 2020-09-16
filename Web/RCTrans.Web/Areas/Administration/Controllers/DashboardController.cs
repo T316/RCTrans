@@ -6,21 +6,25 @@
     using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Administration.Dashboard;
     using RCTrans.Web.ViewModels.Blog;
+    using RCTrans.Web.ViewModels.Order;
 
     public class DashboardController : AdministrationController
     {
         private readonly ISettingsService settingsService;
         private readonly IBlogsService blogsService;
         private readonly IVehiclesService vehiclesService;
+        private readonly IOrdersService ordersService;
 
         public DashboardController(
             ISettingsService settingsService,
             IBlogsService blogsService,
-            IVehiclesService vehiclesService)
+            IVehiclesService vehiclesService,
+            IOrdersService ordersService)
         {
             this.settingsService = settingsService;
             this.blogsService = blogsService;
             this.vehiclesService = vehiclesService;
+            this.ordersService = ordersService;
         }
 
         public IActionResult Index()
@@ -76,6 +80,15 @@
                 input.WinterTyres);
 
             return this.Redirect($"/Autopark/Reserve/{vehicleId}");
+        }
+
+        public IActionResult AllOrders()
+        {
+            var viewModel = new AllOrdersViewModel();
+            var orders = this.ordersService.GetAllOrders<SingleOrderViewModel>();
+            viewModel.Orders = orders;
+
+            return this.View(viewModel);
         }
     }
 }

@@ -107,5 +107,10 @@
         {
             return this.orderRepository.All().Where(o => o.UserId == userId).OrderByDescending(o => o.CreatedOn).To<T>().ToList();
         }
+
+        public IEnumerable<T> GetAllOrders<T>()
+        {
+            return this.orderRepository.All().OrderByDescending(o => o.CreatedOn).To<T>().ToList();
+        }
     }
 }
