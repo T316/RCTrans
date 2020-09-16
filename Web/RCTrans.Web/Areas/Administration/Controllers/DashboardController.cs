@@ -79,7 +79,7 @@
                 input.AirConditioner,
                 input.WinterTyres);
 
-            return this.Redirect($"/Autopark/Reserve/{vehicleId}");
+            return this.Redirect($"/Autopark/Details/{vehicleId}");
         }
 
         public IActionResult AllOrders()

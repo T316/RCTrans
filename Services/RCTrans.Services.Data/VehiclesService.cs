@@ -40,6 +40,11 @@
             return this.vehicleRepository.All().Where(v => v.Id == id).To<T>().First();
         }
 
+        public Vehicle GetVehicleById(int id)
+        {
+            return this.vehicleRepository.All().Where(v => v.Id == id).First();
+        }
+
         public async Task<int> CreateAsync(
             string manufacturer,
             string model,
@@ -106,6 +111,12 @@
             await this.vehicleRepository.SaveChangesAsync();
 
             return vehicle.Id;
+        }
+
+        public async Task DeleteVehicleById(Vehicle vehicle)
+        {
+            this.vehicleRepository.Delete(vehicle);
+            await this.vehicleRepository.SaveChangesAsync();
         }
     }
 }

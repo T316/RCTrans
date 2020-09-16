@@ -1,9 +1,11 @@
 ﻿namespace RCTrans.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using RCTrans.Data.Models;
     using RCTrans.Services.Data.Interfaces;
 
     using RCTrans.Web.ViewModels.Autopark;
+    using System.Threading.Tasks;
 
     public class AutoparkController : BaseController
     {
@@ -46,6 +48,29 @@
             var viewModel = this.vehiclesService.GetVehicleById<ReserveVehicleViewModel>(id);
 
             return this.View(viewModel);
+        }
+
+        public IActionResult EditVehicle(int id)
+        {
+            return this.View();
+        }
+
+        public async Task<IActionResult> DeleteVehicle(int id)
+        {
+            var vehicle = this.vehiclesService.GetVehicleById(id);
+            await this.vehiclesService.DeleteVehicleById(vehicle);
+
+            var actionName = vehicle.VehicleType.ToString();
+            if (vehicle.VehicleType.ToString() == "Car")
+            {
+                actionName += "s";
+            }
+            else
+            {
+                actionName += "es";
+            }
+
+            return this.RedirectToAction(actionName);
         }
     }
 }

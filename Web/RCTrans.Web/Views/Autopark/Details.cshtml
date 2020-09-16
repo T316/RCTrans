@@ -1,4 +1,5 @@
-﻿@using RCTrans.Data.Models.Enums
+﻿@using RCTrans.Common
+@using RCTrans.Data.Models.Enums
 @model RCTrans.Web.ViewModels.Autopark.ReserveVehicleViewModel
 @{
     ViewData["Title"] = "Детайли";
@@ -61,8 +62,20 @@
                                     </div>
                                 </div>
 
-                                <a class="btn theme-btn" asp-area="" asp-controller="Order" asp-action="CreateOrder" asp-route-id="@Model.Id">Резервирай</a>
                             </div>
+
+                        </div>
+                        <br />
+                        <div class="d-flex justify-content-center">
+                            <a class="btn theme-btn" asp-area="" asp-controller="Order" asp-action="CreateOrder" asp-route-id="@Model.Id">Резервирай</a>
+                            @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                            {
+                                <a class="btn edit-btn" asp-area="" asp-controller="AutoPark" asp-action="EditVehicle" asp-route-id="@Model.Id">Промени</a>
+                            }
+                            @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                            {
+                                <a class="btn delete-btn" asp-area="" asp-controller="AutoPark" asp-action="DeleteVehicle" asp-route-id="@Model.Id">Изтрий</a>
+                            }
                         </div>
                     </div>
                 </div>

@@ -179,6 +179,41 @@ body {
     margin-right: 10px !important;
     float: left;
 }
+
 .my-order-btn {
     width: 250px;
 }
+
+.edit-btn {
+    background-color: cornflowerblue;
+    color: #000 !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .edit-btn:hover {
+        border-color: #000000;
+    }
+
+.delete-btn {
+    background-color: orangered;
+    color: #000 !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .delete-btn:hover {
+        border-color: #000000;
+    }

@@ -10,8 +10,10 @@
             <div class="section-title  text-center">
                 <h2>@ViewData["Title"]</h2>
                 <span class="title-line"><i class="fa fa-car"></i></span>
-
-                <p>Обща печалба: @Model.TotalPrice лв.</p>
+                @if (Model.Orders.Count() != 0)
+                {
+                    <p>Обща печалба: @Model.TotalPrice лв.</p>
+                }
             </div>
         </div>
         <div class="row">
@@ -19,7 +21,24 @@
             {
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10 text-center">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <h5>Все още нямате поръчки.</h5>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </div>
             }
             @foreach (var order in @Model.Orders)
