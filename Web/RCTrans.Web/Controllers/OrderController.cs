@@ -1,5 +1,8 @@
 ﻿namespace RCTrans.Web.Controllers
 {
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -7,8 +10,6 @@
     using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Autopark;
     using RCTrans.Web.ViewModels.Order;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
 
     [Authorize]
     public class OrderController : BaseController
@@ -91,7 +92,18 @@
                 storeModel.BabySeat,
                 storeModel.Price);
 
-            return this.Redirect($"/Home/Index");
+            return this.Redirect($"/Order/MyOrders");
+        }
+
+        public IActionResult MyOrders()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var viewModel = new MyOrdersViewModel();
+            var orders = this.ordersService.GetOrdersByUserId<SingleOrderViewModel>(userId);
+            viewModel.Orders = orders;
+
+            return this.View(viewModel);
         }
     }
 }

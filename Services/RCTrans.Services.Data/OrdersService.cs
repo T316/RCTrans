@@ -1,12 +1,15 @@
 ﻿namespace RCTrans.Services.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using RCTrans.Data.Common.Repositories;
     using RCTrans.Data.Models;
     using RCTrans.Services.Data.Interfaces;
+    using RCTrans.Services.Mapping;
 
     public class OrdersService : IOrdersService
     {
@@ -98,6 +101,11 @@
             await this.orderRepository.SaveChangesAsync();
 
             return order.Id;
+        }
+
+        public IEnumerable<T> GetOrdersByUserId<T>(string userId)
+        {
+            return this.orderRepository.All().Where(o => o.UserId == userId).OrderByDescending(o => o.CreatedOn).To<T>().ToList();
         }
     }
 }

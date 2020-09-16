@@ -1359,7 +1359,6 @@ a.slicknav_btn {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 10px;
     margin-bottom: 50px;
-    text-transform: uppercase;
 }
 
 .col-lg-12:last-child .single-article {
@@ -1436,7 +1435,6 @@ a.slicknav_btn {
 .article-body p {
     color: #999;
     line-height: 1.8;
-    text-transform: capitalize;
 }
 
 .readmore-btn {
