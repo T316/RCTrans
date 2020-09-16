@@ -52,7 +52,10 @@
                                         <ul>
                                             <li>Неограничени KM</li>
                                             <li>Защита от кражба</li>
-                                            <li>Климатик</li>
+                                            @if (Model.AirConditioner)
+                                            {
+                                                <li>Климатик</li>
+                                            }
                                             @if (Model.WinterTyres)
                                             {
                                                 <li>Зимни гуми</li>

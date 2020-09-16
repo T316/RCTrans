@@ -1,7 +1,7 @@
 ﻿@using RCTrans.Data.Models.Enums
 @model RCTrans.Web.ViewModels.Administration.Dashboard.VehicleCreateInputModel
 @{
-    ViewData["Title"] = "Добавяне на амтомобил";
+    ViewData["Title"] = "Редектиране на амтомобил";
 }
 
 <div class="row pages-padding">
@@ -81,7 +81,7 @@
                 <span asp-validation-for="WinterTyres" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn theme-btn">Добави</button>
+            <button type="submit" class="btn theme-btn">Промени</button>
         </form>
     </div>
 </div>
@@ -91,18 +91,32 @@
     <script>
         function onLoad() {
             let vehicleSubTypeEl = document.getElementById('VehicleSubType');
+            let selected = $('#VehicleType option:selected').index();
             vehicleSubTypeEl.innerHTML = "";
 
-            let optionEl = el('option', 'Хечбек', { value: 1 });
-            let optionEl2 = el('option', 'Седан', { value: 2 });
-            let optionEl3 = el('option', 'Комби', { value: 3 });
-            let optionEl4 = el('option', 'Джип', { value: 4 });
-            let optionEl5 = el('option', 'Пикап', { value: 5 });
-            vehicleSubTypeEl.appendChild(optionEl);
-            vehicleSubTypeEl.appendChild(optionEl2);
-            vehicleSubTypeEl.appendChild(optionEl3);
-            vehicleSubTypeEl.appendChild(optionEl4);
-            vehicleSubTypeEl.appendChild(optionEl5);
+            if (selected === 0) {
+                let optionEl = el('option', 'Хечбек', { value: 1 });
+                let optionEl2 = el('option', 'Седан', { value: 2 });
+                let optionEl3 = el('option', 'Комби', { value: 3 });
+                let optionEl4 = el('option', 'Джип', { value: 4 });
+                let optionEl5 = el('option', 'Пикап', { value: 5 });
+                vehicleSubTypeEl.appendChild(optionEl);
+                vehicleSubTypeEl.appendChild(optionEl2);
+                vehicleSubTypeEl.appendChild(optionEl3);
+                vehicleSubTypeEl.appendChild(optionEl4);
+                vehicleSubTypeEl.appendChild(optionEl5);
+            } else if (selected === 1) {
+                let optionEl = el('option', 'Мини ван', { value: 6 });
+                let optionEl2 = el('option', 'Товарен бус', { value: 7 });
+                vehicleSubTypeEl.appendChild(optionEl);
+                vehicleSubTypeEl.appendChild(optionEl2);
+
+            } else if (selected === 2) {
+                let optionEl = el('option', 'Автобус', { value: 8 });
+                let optionEl2 = el('option', 'Специален автобус', { value: 9 });
+                vehicleSubTypeEl.appendChild(optionEl);
+                vehicleSubTypeEl.appendChild(optionEl2);
+            }
 
             $('#VehicleType').on('change', function () {
                 let selected = $('#VehicleType option:selected').index();

@@ -33,6 +33,22 @@
             bool airConditioner,
             bool winterTyres);
 
+        Task<int> UpdateAsync(
+            int id,
+            string manufacturer,
+            string model,
+            string additionalInfo,
+            int seats,
+            int doors,
+            Transmission transmission,
+            Fuel fuel,
+            VehicleType vehicleType,
+            VehicleSubType vehicleSubType,
+            decimal price,
+            string imageURL,
+            bool airConditioner,
+            bool winterTyres);
+
         Task DeleteVehicleById(Vehicle vehicle);
     }
 }
