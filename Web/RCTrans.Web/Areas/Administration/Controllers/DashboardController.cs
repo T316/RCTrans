@@ -87,6 +87,7 @@
             var viewModel = new AllOrdersViewModel();
             var orders = this.ordersService.GetAllOrders<SingleOrderViewModel>();
             viewModel.Orders = orders;
+            viewModel.TotalPrice = this.ordersService.CalculateTotalPrice();
 
             return this.View(viewModel);
         }

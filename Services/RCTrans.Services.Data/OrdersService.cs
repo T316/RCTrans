@@ -112,5 +112,10 @@
         {
             return this.orderRepository.All().OrderByDescending(o => o.CreatedOn).To<T>().ToList();
         }
+
+        public decimal CalculateTotalPrice()
+        {
+            return this.orderRepository.All().Sum(o => o.Price);
+        }
     }
 }

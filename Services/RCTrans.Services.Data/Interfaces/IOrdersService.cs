@@ -29,5 +29,7 @@
         IEnumerable<T> GetOrdersByUserId<T>(string userId);
 
         IEnumerable<T> GetAllOrders<T>();
+
+        decimal CalculateTotalPrice();
     }
 }

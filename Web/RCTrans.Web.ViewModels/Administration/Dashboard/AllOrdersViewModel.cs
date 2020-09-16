@@ -7,5 +7,7 @@
     public class AllOrdersViewModel
     {
         public IEnumerable<SingleOrderViewModel> Orders { get; set; }
+
+        public decimal TotalPrice { get; set; }
     }
 }
