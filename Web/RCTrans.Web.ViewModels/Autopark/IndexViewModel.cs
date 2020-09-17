@@ -4,6 +4,6 @@
 
     public class IndexViewModel
     {
-        public IEnumerable<IndexVehicleViewModel> Vehicles { get; set; }
+        public IEnumerable<VehicleViewModel> Vehicles { get; set; }
     }
 }

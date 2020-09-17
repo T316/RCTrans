@@ -4,7 +4,6 @@
 
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Services.Data.Interfaces;
-    using RCTrans.Web.ViewModels.Administration.Dashboard;
     using RCTrans.Web.ViewModels.Autopark;
 
     public class AutoparkController : BaseController
@@ -19,7 +18,7 @@
         public IActionResult Cars()
         {
             var viewModel = new ViewModels.Autopark.IndexViewModel();
-            var vehicles = this.vehiclesService.GetCars<IndexVehicleViewModel>();
+            var vehicles = this.vehiclesService.GetCars<VehicleViewModel>();
             viewModel.Vehicles = vehicles;
 
             return this.View(viewModel);
@@ -28,7 +27,7 @@
         public IActionResult Buses()
         {
             var viewModel = new ViewModels.Autopark.IndexViewModel();
-            var vehicles = this.vehiclesService.GetBuses<IndexVehicleViewModel>();
+            var vehicles = this.vehiclesService.GetBuses<VehicleViewModel>();
             viewModel.Vehicles = vehicles;
 
             return this.View(viewModel);
@@ -37,7 +36,7 @@
         public IActionResult Autobuses()
         {
             var viewModel = new ViewModels.Autopark.IndexViewModel();
-            var vehicles = this.vehiclesService.GetAutobuses<IndexVehicleViewModel>();
+            var vehicles = this.vehiclesService.GetAutobuses<VehicleViewModel>();
             viewModel.Vehicles = vehicles;
 
             return this.View(viewModel);
@@ -45,20 +44,20 @@
 
         public IActionResult Details(int id)
         {
-            var viewModel = this.vehiclesService.GetVehicleById<ReserveVehicleViewModel>(id);
+            var viewModel = this.vehiclesService.GetVehicleById<DetailsVehicleViewModel>(id);
 
             return this.View(viewModel);
         }
 
         public IActionResult EditVehicle(int id)
         {
-            var viewModel = this.vehiclesService.GetVehicleById<VehicleCreateInputModel>(id);
+            var viewModel = this.vehiclesService.GetVehicleById<VehicleEditInputModel>(id);
 
             return this.View(viewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditVehicle(VehicleCreateInputModel input)
+        public async Task<IActionResult> EditVehicle(VehicleEditInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
@@ -86,18 +85,7 @@
 
         public async Task<IActionResult> DeleteVehicle(int id)
         {
-            var vehicle = this.vehiclesService.GetVehicleById(id);
-            await this.vehiclesService.DeleteVehicleById(vehicle);
-
-            var actionName = vehicle.VehicleType.ToString();
-            if (vehicle.VehicleType.ToString() == "Car")
-            {
-                actionName += "s";
-            }
-            else
-            {
-                actionName += "es";
-            }
+            var actionName = await this.vehiclesService.DeleteVehicleById(id);
 
             return this.RedirectToAction(actionName);
         }

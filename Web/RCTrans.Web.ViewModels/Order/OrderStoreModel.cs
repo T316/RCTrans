@@ -10,7 +10,7 @@
 
         public int VehicleId { get; set; }
 
-        public IndexVehicleViewModel Vehicle { get; set; }
+        public VehicleViewModel Vehicle { get; set; }
 
         public DateTime StartDate { get; set; }
 

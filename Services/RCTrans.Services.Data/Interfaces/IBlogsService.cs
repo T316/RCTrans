@@ -14,8 +14,6 @@
 
         T GetArticleById<T>(int id);
 
-        Article GetArticleById(int id);
-
         Task<int> CreateAsync(string title, string content, string imageUrl);
 
         Task<int> UpdateAsync(int id, string title, string content, string imageUrl, DateTime createdOn);

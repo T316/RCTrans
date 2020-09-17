@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using RCTrans.Data.Models;
+    using RCTrans.Web.ViewModels.Autopark;
 
     public class OrderCreateInputModel
     {
@@ -27,6 +28,6 @@
         [Display(Name = "Бебешко столче")]
         public bool BabySeat { get; set; }
 
-        public Vehicle Vehicle { get; set; }
+        public VehicleViewModel Vehicle { get; set; }
     }
 }

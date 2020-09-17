@@ -1,11 +1,16 @@
-﻿namespace RCTrans.Web.ViewModels.Administration.Dashboard
+﻿namespace RCTrans.Web.ViewModels.Autopark
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
+    using RCTrans.Data.Models;
     using RCTrans.Data.Models.Enums;
+    using RCTrans.Services.Mapping;
 
-    public class VehicleCreateInputModel
+    public class VehicleEditInputModel : IMapFrom<Vehicle>
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Марката е задължителна.")]
         [StringLength(20, ErrorMessage = "Марката трябва да е между {2} и {1} символа.", MinimumLength = 2)]
         [Display(Name = "Марка")]

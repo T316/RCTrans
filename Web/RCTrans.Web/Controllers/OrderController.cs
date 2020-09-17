@@ -9,7 +9,6 @@
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Data.Models;
     using RCTrans.Services.Data.Interfaces;
-    using RCTrans.Web.ViewModels.Administration.Dashboard;
     using RCTrans.Web.ViewModels.Autopark;
     using RCTrans.Web.ViewModels.Order;
 
@@ -31,7 +30,7 @@
         [HttpGet]
         public IActionResult CreateOrder(OrderCreateInputModel input, int id)
         {
-            var vehicle = this.vehiclesService.GetVehicleById(id);
+            var vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(id);
             input.Vehicle = vehicle;
             input.StartDate = DateTime.Now;
             input.EndDate = DateTime.Now.AddDays(1);
@@ -53,7 +52,7 @@
                 return this.View(input);
             }
 
-            var vehiclePrice = this.vehiclesService.GetVehicleById<IndexVehicleViewModel>(id).Price;
+            var vehiclePrice = this.vehiclesService.GetVehicleById<VehicleViewModel>(id).Price;
 
             var storeModel = new OrderStoreModel
             {
@@ -81,7 +80,7 @@
         [HttpGet]
         public IActionResult CompleteOrder(OrderStoreModel storeModel)
         {
-            storeModel.Vehicle = this.vehiclesService.GetVehicleById<IndexVehicleViewModel>(storeModel.VehicleId);
+            storeModel.Vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(storeModel.VehicleId);
 
             return this.View(storeModel);
         }

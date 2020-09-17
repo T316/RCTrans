@@ -1,9 +1,10 @@
 ﻿namespace RCTrans.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Blog;
-    using System.Threading.Tasks;
 
     public class BlogController : BaseController
     {
@@ -32,13 +33,13 @@
 
         public IActionResult EditArticle(int id)
         {
-            var viewModel = this.blogsService.GetArticleById<ArticleCreateInputModel>(id);
+            var viewModel = this.blogsService.GetArticleById<ArticleEditInputModel>(id);
 
             return this.View(viewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditArticle(ArticleCreateInputModel input)
+        public async Task<IActionResult> EditArticle(ArticleEditInputModel input)
         {
             if (!this.ModelState.IsValid)
             {

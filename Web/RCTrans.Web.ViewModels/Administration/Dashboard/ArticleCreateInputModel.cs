@@ -1,12 +1,9 @@
-﻿namespace RCTrans.Web.ViewModels.Blog
+﻿namespace RCTrans.Web.ViewModels.Administration.Dashboard
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    using RCTrans.Data.Models;
-    using RCTrans.Services.Mapping;
-
-    public class ArticleCreateInputModel : IMapFrom<Article>
+    public class ArticleCreateInputModel
     {
         public int Id { get; set; }
 

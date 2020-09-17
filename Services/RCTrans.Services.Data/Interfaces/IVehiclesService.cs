@@ -16,8 +16,6 @@
 
         T GetVehicleById<T>(int id);
 
-        Vehicle GetVehicleById(int id);
-
         Task<int> CreateAsync(
             string manufacturer,
             string model,
@@ -49,6 +47,6 @@
             bool airConditioner,
             bool winterTyres);
 
-        Task DeleteVehicleById(Vehicle vehicle);
+        Task<string> DeleteVehicleById(int id);
     }
 }
