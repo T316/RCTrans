@@ -37,7 +37,7 @@
 
         public T GetVehicleById<T>(int id)
         {
-            return this.vehicleRepository.All().Where(v => v.Id == id).To<T>().First();
+            return this.vehicleRepository.All().Where(v => v.Id == id).To<T>().FirstOrDefault();
         }
 
         public async Task<int> CreateAsync(
@@ -199,7 +199,7 @@
 
         private Vehicle GetVehicleById(int id)
         {
-            return this.vehicleRepository.All().Where(v => v.Id == id).First();
+            return this.vehicleRepository.All().Where(v => v.Id == id).FirstOrDefault();
         }
     }
 }

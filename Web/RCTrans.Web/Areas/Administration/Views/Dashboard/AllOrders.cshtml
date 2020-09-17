@@ -12,7 +12,7 @@
                 <span class="title-line"><i class="fa fa-car"></i></span>
                 @if (Model.Orders.Count() != 0)
                 {
-                    <p>Обща печалба: @Model.TotalPrice лв.</p>
+                    <p>Обща печалба: <strong>@Model.TotalPrice</strong> лв.</p>
                 }
             </div>
         </div>
@@ -24,21 +24,7 @@
                     <br />
                     <br />
                     <br />
-                    <br />
-                    <br />
                     <h5>Все още нямате поръчки.</h5>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </div>
             }
             @foreach (var order in @Model.Orders)
@@ -56,18 +42,21 @@
                                 <div class="display-table">
                                     <div class="display-table-cell">
                                         <div class="article-body">
-                                            <h3><a href="article-details.html">@order.Vehicle.Manufacturer @order.Vehicle.Model</a></h3>
-
+                                            <h3>@order.Vehicle.Manufacturer @order.Vehicle.Model</h3>
+                                            <br />
+                                            <p>Наето от: <strong>@order.User</strong></p>
                                             <p>Дата на наемане: @order.CreatedOn.ToString("dd.MM.yyyy", CultureInfo.CreateSpecificCulture("bg-BG"))</p>
+                                            <br />
                                             <p>Дата на вземане: @order.StartDate.ToString(CultureInfo.CreateSpecificCulture("bg-BG"))</p>
                                             <p>Дата на връщане: @order.EndDate.ToString(CultureInfo.CreateSpecificCulture("bg-BG"))</p>
-
-                                            <br />
                                             <br />
                                             <p>
-                                                Цена: @order.Price
+                                                Цена: <strong> @order.Price</strong>
                                             </p>
-
+                                            <div class="d-flex justify-content-center">
+                                                <a class="btn edit-btn" asp-area="Administration" asp-controller="Dashboard" asp-action="EditOrder" asp-route-id="@order.Id">Промени</a>
+                                                <a class="btn delete-btn" asp-area="Administration" asp-controller="Dashboard" asp-action="DeleteOrder" asp-route-id="@order.Id">Отмени</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

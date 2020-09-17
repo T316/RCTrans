@@ -31,7 +31,7 @@
 
         public T GetArticleById<T>(int id)
         {
-            return this.articleRepository.All().Where(a => a.Id == id).To<T>().First();
+            return this.articleRepository.All().Where(a => a.Id == id).To<T>().FirstOrDefault();
         }
 
         public async Task<int> CreateAsync(string title, string content, string imageUrl)
@@ -75,7 +75,7 @@
 
         private Article GetArticleById(int id)
         {
-            return this.articleRepository.All().Where(a => a.Id == id).First();
+            return this.articleRepository.All().Where(a => a.Id == id).FirstOrDefault();
         }
     }
 }

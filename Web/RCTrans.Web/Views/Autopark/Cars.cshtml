@@ -37,16 +37,16 @@
 
                             <div class="p-car-content">
                                 <h3>
-                                    <a href="#">@vehicle.Manufacturer @vehicle.Model</a>
+                                    @vehicle.Manufacturer @vehicle.Model
                                     <span class="price"><i class="fa fa-tag"></i> @vehicle.Price</span>
                                 </h3>
 
                                 <h5>@vehicle.Transmission.GetDisplayName() управление</h5>
 
                                 <div class="p-car-feature">
-                                    <a href="#">@vehicle.Fuel.GetDisplayName()</a>
-                                    <a href="#">Места: @vehicle.Seats</a>
-                                    <a href="#">Врати: @vehicle.Doors</a>
+                                    <a>@vehicle.Fuel.GetDisplayName()</a>
+                                    <a>Места: @vehicle.Seats</a>
+                                    <a >Врати: @vehicle.Doors</a>
                                 </div>
 
                                 <a class="btn theme-btn" asp-area="" asp-controller="Autopark" asp-action="Details" asp-route-id="@vehicle.Id">Детайли</a>

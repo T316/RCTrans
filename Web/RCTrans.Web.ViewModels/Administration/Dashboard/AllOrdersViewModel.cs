@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using RCTrans.Data.Models;
     using RCTrans.Web.ViewModels.Order;
 
     public class AllOrdersViewModel

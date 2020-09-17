@@ -1,0 +1,82 @@
+﻿@model RCTrans.Web.ViewModels.Administration.Dashboard.OrderEditInputModel
+@{
+    ViewData["Title"] = "Редактирай резервацията";
+}
+
+<div class="row pages-padding">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="col-lg-12">
+            <div class="section-title  text-center">
+                <h2>Резервация</h2>
+                <span class="title-line"><i class="fa fa-car"></i></span>
+            </div>
+        </div>
+        <div class="theme-form">
+            <h5>@Model.Vehicle.Manufacturer @Model.Vehicle.Model</h5>
+        </div>
+        <form method="post">
+            <div class="theme-form">
+                <label asp-for="StartDate"></label>
+                <input asp-for="StartDate" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="EndDate"></label>
+                <input asp-for="EndDate" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="theme-form">
+                <label asp-for="CarInsurance">
+                    Пълна застраховка (+20 лв/ден)
+                </label>
+                <input asp-for="CarInsurance" class="checkBox" />
+                <span asp-validation-for="CarInsurance" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="Driver">
+                    Шофьор (+120 лв/ден)
+                </label>
+                <input asp-for="Driver" class="checkBox" />
+                <span asp-validation-for="Driver" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="BabySeat">
+                    Бебешко столче (+10 лв/ден)
+                </label>
+                <input asp-for="BabySeat" class="checkBox" />
+                <span asp-validation-for="BabySeat" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="ChildSeat">
+                    Детско столче (+10 лв/ден)
+                </label>
+                <input asp-for="ChildSeat" class="checkBox" />
+                <span asp-validation-for="ChildSeat" class="text-danger"></span>
+            </div>
+            <div class="theme-form">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="gj-hidden">
+                <label asp-for="Id"></label>
+                <input asp-for="Id" />
+            </div>
+            <div class="gj-hidden">
+                <label asp-for="UserId"></label>
+                <input asp-for="UserId" />
+            </div>
+            <div class="gj-hidden">
+                <label asp-for="VehicleId"></label>
+                <input asp-for="VehicleId" />
+            </div>
+            <div class="gj-hidden">
+                <label asp-for="CreatedOn"></label>
+                <input asp-for="CreatedOn" />
+            </div>
+            <button type="submit" class="btn theme-btn">Към слезващата стъпка</button>
+        </form>
+    </div>
+</div>

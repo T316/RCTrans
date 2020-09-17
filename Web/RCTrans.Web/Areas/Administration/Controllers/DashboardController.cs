@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Services.Data.Interfaces;
     using RCTrans.Web.ViewModels.Administration.Dashboard;
+    using RCTrans.Web.ViewModels.Autopark;
     using RCTrans.Web.ViewModels.Order;
 
     public class DashboardController : AdministrationController
@@ -89,6 +90,45 @@
             viewModel.TotalPrice = this.ordersService.CalculateTotalPrice();
 
             return this.View(viewModel);
+        }
+
+        public IActionResult EditOrder(int id)
+        {
+            var viewModel = this.ordersService.GetOrderById<OrderEditInputModel>(id);
+            viewModel.Vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(id);
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditOrder(OrderEditInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            await this.ordersService.UpdateAsync(
+                input.Id,
+                input.VehicleId,
+                input.UserId,
+                input.StartDate,
+                input.EndDate,
+                input.CarInsurance,
+                input.Driver,
+                input.ChildSeat,
+                input.BabySeat,
+                input.CreatedOn,
+                input.Price);
+
+            return this.RedirectToAction($"AllOrders");
+        }
+
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            await this.ordersService.DeleteOrderById(id);
+
+            return this.RedirectToAction($"AllOrders");
         }
     }
 }

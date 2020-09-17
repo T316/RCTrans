@@ -103,6 +103,11 @@
             return order.Id;
         }
 
+        public T GetOrderById<T>(int id)
+        {
+            return this.orderRepository.All().Where(v => v.Id == id).To<T>().FirstOrDefault();
+        }
+
         public IEnumerable<T> GetOrdersByUserId<T>(string userId)
         {
             return this.orderRepository.All().Where(o => o.UserId == userId).OrderByDescending(o => o.CreatedOn).To<T>().ToList();
@@ -116,6 +121,62 @@
         public decimal CalculateTotalPrice()
         {
             return this.orderRepository.All().Sum(o => o.Price);
+        }
+
+        public async Task DeleteOrderById(int id)
+        {
+            var order = this.GetOrderById(id);
+            this.orderRepository.Delete(order);
+            await this.orderRepository.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(
+            int id,
+            int vehicleId,
+            string userId,
+            DateTime startDate,
+            DateTime endDate,
+            bool carInsurance,
+            bool driver,
+            bool childSeat,
+            bool babySeat,
+            DateTime createdOn,
+            decimal price)
+        {
+            var order = new Order
+            {
+                Id = id,
+                VehicleId = vehicleId,
+                UserId = userId,
+                StartDate = startDate,
+                EndDate = endDate,
+                CarInsurance = carInsurance,
+                Driver = driver,
+                BabySeat = babySeat,
+                ChildSeat = childSeat,
+                CreatedOn = createdOn,
+                Price = price,
+            };
+
+            var isDatesAreValid = true;
+
+            if (endDate < startDate)
+            {
+                isDatesAreValid = false;
+            }
+
+            if (!isDatesAreValid)
+            {
+                throw new ValidationException("Датите са невалидни");
+            }
+
+            this.orderRepository.Update(order);
+            await this.orderRepository.SaveChangesAsync();
+        }
+
+        private Order GetOrderById(int id)
+        {
+            return this.orderRepository.All().Where(a => a.Id == id).FirstOrDefault();
         }
     }
 }

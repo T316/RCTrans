@@ -185,11 +185,11 @@ body {
 }
 
 .edit-btn {
-    background-color: cornflowerblue;
+    background-color: cadetblue;
     color: #000 !important;
     font-size: 13px;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px 25px;
     text-transform: uppercase;
     display: block;
@@ -202,11 +202,11 @@ body {
     }
 
 .delete-btn {
-    background-color: orangered;
+    background-color: indianred;
     color: #000 !important;
     font-size: 13px;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px 25px;
     text-transform: uppercase;
     display: block;

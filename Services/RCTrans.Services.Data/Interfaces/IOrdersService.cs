@@ -26,10 +26,27 @@
             bool babySeat,
             decimal price);
 
+        T GetOrderById<T>(int id);
+
         IEnumerable<T> GetOrdersByUserId<T>(string userId);
 
         IEnumerable<T> GetAllOrders<T>();
 
         decimal CalculateTotalPrice();
+
+        Task DeleteOrderById(int id);
+
+        Task UpdateAsync(
+            int id,
+            int vehicleId,
+            string userId,
+            DateTime startDate,
+            DateTime endDate,
+            bool carInsurance,
+            bool driver,
+            bool childSeat,
+            bool babySeat,
+            DateTime createdOn,
+            decimal price);
     }
 }
