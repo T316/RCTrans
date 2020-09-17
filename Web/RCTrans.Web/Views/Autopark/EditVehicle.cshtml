@@ -92,6 +92,7 @@
         function onLoad() {
             let vehicleSubTypeEl = document.getElementById('VehicleSubType');
             let selected = $('#VehicleType option:selected').index();
+            let selectedSubType = $('#VehicleSubType option:selected').text();
             vehicleSubTypeEl.innerHTML = "";
 
             if (selected === 0) {
@@ -117,6 +118,12 @@
                 vehicleSubTypeEl.appendChild(optionEl);
                 vehicleSubTypeEl.appendChild(optionEl2);
             }
+
+            document.querySelectorAll('option').forEach(option => {
+                if (option.text === selectedSubType) {
+                    option.setAttribute('selected', 'selected=');
+                }
+            });
 
             $('#VehicleType').on('change', function () {
                 let selected = $('#VehicleType option:selected').index();
