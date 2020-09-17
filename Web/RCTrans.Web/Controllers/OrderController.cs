@@ -1,5 +1,6 @@
 ﻿namespace RCTrans.Web.Controllers
 {
+    using System;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@
     using Microsoft.AspNetCore.Mvc;
     using RCTrans.Data.Models;
     using RCTrans.Services.Data.Interfaces;
+    using RCTrans.Web.ViewModels.Administration.Dashboard;
     using RCTrans.Web.ViewModels.Autopark;
     using RCTrans.Web.ViewModels.Order;
 
@@ -26,13 +28,20 @@
             this.vehiclesService = vehiclesService;
         }
 
-        public IActionResult CreateOrder()
+        [HttpGet]
+        public IActionResult CreateOrder(OrderCreateInputModel input, int id)
         {
-            return this.View();
+            var vehicle = this.vehiclesService.GetVehicleById(id);
+            input.Vehicle = vehicle;
+            input.StartDate = DateTime.Now;
+            input.EndDate = DateTime.Now.AddDays(1);
+
+            return this.View(input);
         }
 
         [HttpPost]
-        public IActionResult CreateOrder(OrderCreateInputModel input, int id)
+        [ActionName("CreateOrder")]
+        public IActionResult CreateOrderPost(OrderCreateInputModel input, int id)
         {
             if (!this.ModelState.IsValid)
             {

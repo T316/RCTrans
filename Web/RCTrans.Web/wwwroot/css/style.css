@@ -99,6 +99,7 @@
 
 .pages-padding {
     padding: 50px 0;
+    min-height: 50em;
 }
 
 .section-title {

@@ -32,7 +32,7 @@
             <div class="tech-info-list">
                 <ul>
                     <li>Неограничени KM</li>
-                    @if (Model.CarInsurance)
+                    @if (Model.CarInsurance || Model.Vehicle.VehicleSubType.ToString() == "Special")
                     {
                         <li>Пълна застраховка</li>
                     }
@@ -40,12 +40,12 @@
                     {
                         <li>Защита от кражба</li>
                     }
-                    @if (Model.Driver)
+                    @if (Model.Driver || Model.Vehicle.VehicleSubType.ToString() == "Special")
                     {
                         <li>Професионален шофьор</li>
                     }
                     <li>Климатик</li>
-                    @if (Model.Vehicle.WinterTyres)
+                    @if (Model.Vehicle.WinterTyres || Model.Vehicle.VehicleSubType.ToString() == "Special")
                     {
                         <li>Зимни гуми</li>
                     }

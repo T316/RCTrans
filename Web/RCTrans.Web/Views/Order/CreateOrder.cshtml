@@ -23,34 +23,41 @@
                 <input asp-for="EndDate" />
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
-            <div class="theme-form">
-                <label asp-for="CarInsurance">
-                    Пълна застраховка (+20 лв/ден)
-                </label>
-                <input asp-for="CarInsurance" class="checkBox" />
-                <span asp-validation-for="CarInsurance" class="text-danger"></span>
-            </div>
-            <div class="theme-form">
-                <label asp-for="Driver">
-                    Шофьор (+120 лв/ден)
-                </label>
-                <input asp-for="Driver" class="checkBox" />
-                <span asp-validation-for="Driver" class="text-danger"></span>
-            </div>
-            <div class="theme-form">
-                <label asp-for="BabySeat">
-                    Бебешко столче (+10 лв/ден)
-                </label>
-                <input asp-for="BabySeat" class="checkBox" />
-                <span asp-validation-for="BabySeat" class="text-danger"></span>
-            </div>
-            <div class="theme-form">
-                <label asp-for="ChildSeat">
-                    Детско столче (+10 лв/ден)
-                </label>
-                <input asp-for="ChildSeat" class="checkBox" />
-                <span asp-validation-for="ChildSeat" class="text-danger"></span>
-            </div>
+            @if (Model.Vehicle.VehicleSubType.ToString() != "Special")
+            {
+                <div class="theme-form">
+                    <label asp-for="CarInsurance">
+                        Пълна застраховка (+20 лв/ден)
+                    </label>
+                    <input asp-for="CarInsurance" class="checkBox" />
+                    <span asp-validation-for="CarInsurance" class="text-danger"></span>
+                </div>
+                <div class="theme-form">
+                    <label asp-for="Driver">
+                        Шофьор (+120 лв/ден)
+                    </label>
+                    <input asp-for="Driver" class="checkBox" />
+                    <span asp-validation-for="Driver" class="text-danger"></span>
+                </div>
+                <div class="theme-form">
+                    <label asp-for="BabySeat">
+                        Бебешко столче (+10 лв/ден)
+                    </label>
+                    <input asp-for="BabySeat" class="checkBox" />
+                    <span asp-validation-for="BabySeat" class="text-danger"></span>
+                </div>
+                <div class="theme-form">
+                    <label asp-for="ChildSeat">
+                        Детско столче (+10 лв/ден)
+                    </label>
+                    <input asp-for="ChildSeat" class="checkBox" />
+                    <span asp-validation-for="ChildSeat" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <br />
+            }
 
             <button type="submit" class="btn theme-btn">Към слезващата стъпка</button>
         </form>

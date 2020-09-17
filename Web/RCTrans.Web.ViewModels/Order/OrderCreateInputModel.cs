@@ -3,6 +3,8 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
+    using RCTrans.Data.Models;
+
     public class OrderCreateInputModel
     {
         [Required(ErrorMessage = "Датата е задължителна.")]
@@ -24,5 +26,7 @@
 
         [Display(Name = "Бебешко столче")]
         public bool BabySeat { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }
