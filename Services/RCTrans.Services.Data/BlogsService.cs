@@ -1,5 +1,6 @@
 ﻿namespace RCTrans.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -33,6 +34,11 @@
             return this.articleRepository.All().Where(a => a.Id == id).To<T>().First();
         }
 
+        public Article GetArticleById(int id)
+        {
+            return this.articleRepository.All().Where(a => a.Id == id).First();
+        }
+
         public async Task<int> CreateAsync(string title, string content, string imageUrl)
         {
             var article = new Article
@@ -46,6 +52,30 @@
             await this.articleRepository.SaveChangesAsync();
 
             return article.Id;
+        }
+
+        public async Task<int> UpdateAsync(int id, string title, string content, string imageUrl, DateTime createdOn)
+        {
+            var article = new Article
+            {
+                Id = id,
+                Title = title,
+                Content = content,
+                ImageUrl = imageUrl,
+                CreatedOn = createdOn,
+            };
+
+            this.articleRepository.Update(article);
+            await this.articleRepository.SaveChangesAsync();
+
+            return article.Id;
+        }
+
+        public async Task DeleteArticleById(int id)
+        {
+            var article = this.GetArticleById(id);
+            this.articleRepository.Delete(article);
+            await this.articleRepository.SaveChangesAsync();
         }
     }
 }

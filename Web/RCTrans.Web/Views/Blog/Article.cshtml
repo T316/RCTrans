@@ -1,9 +1,10 @@
-﻿@model RCTrans.Web.ViewModels.Blog.ArticleViewModel
+﻿@using RCTrans.Common
+@model RCTrans.Web.ViewModels.Blog.ArticleViewModel
 @{
     ViewData["Title"] = "Статия";
 }
 
-<section id="car-list-area" class="pages-padding">
+<section id="car-list-area" class="edit-article-pages-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-1"></div>
@@ -15,6 +16,16 @@
                     </div>
                     <div class="car-details-info blog-content">
                         @Html.Raw(Model.Content)
+                    </div>
+                    <div class="col-3 edit-article-btns">
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <a class="btn edit-btn" asp-area="" asp-controller="Blog" asp-action="EditArticle" asp-route-id="@Model.Id">Промени</a>
+                        }
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <a class="btn delete-btn" asp-area="" asp-controller="Blog" asp-action="DeleteArticle" asp-route-id="@Model.Id">Изтрий</a>
+                        }
                     </div>
                 </div>
             </div>

@@ -217,3 +217,14 @@ body {
     .delete-btn:hover {
         border-color: #000000;
     }
+
+.edit-article-btns {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 90px;
+}
+
+.edit-article-pages-padding {
+    padding-top: 50px;
+    min-height: 50em;
+}

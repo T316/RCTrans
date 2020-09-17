@@ -1,9 +1,15 @@
 ﻿namespace RCTrans.Web.ViewModels.Blog
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class ArticleCreateInputModel
+    using RCTrans.Data.Models;
+    using RCTrans.Services.Mapping;
+
+    public class ArticleCreateInputModel : IMapFrom<Article>
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Заглавието е задължително.")]
         [StringLength(50, ErrorMessage = "Заглавието трябва да е между {2} и {1} символа.", MinimumLength = 3)]
         [Display(Name = "Заглавие")]
@@ -17,5 +23,7 @@
         [Required(ErrorMessage = "Картинката е задължителна.")]
         [Display(Name = "Картинка")]
         public string ImageUrl { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }
