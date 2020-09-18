@@ -42,12 +42,15 @@
         [ActionName("CreateOrder")]
         public IActionResult CreateOrderPost(OrderCreateInputModel input, int id)
         {
-            if (!this.ModelState.IsValid)
+            var vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(id);
+            input.Vehicle = vehicle;
+
+            if (input.EndDate <= input.StartDate)
             {
-                return this.View(input);
+                this.ModelState.AddModelError(string.Empty, "Датата на връщане трябва да е след датата на вземане.");
             }
 
-            if (input.EndDate < input.StartDate)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }

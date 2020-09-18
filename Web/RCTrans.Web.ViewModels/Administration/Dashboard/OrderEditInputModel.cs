@@ -16,7 +16,7 @@
         public int VehicleId { get; set; }
 
         [Required(ErrorMessage = "Датата е задължителна.")]
-        [Display(Name = "Дата на наемане")]
+        [Display(Name = "Дата на вземане")]
         public DateTime StartDate { get; set; }
 
         [Required(ErrorMessage = "Датата е задължителна.")]

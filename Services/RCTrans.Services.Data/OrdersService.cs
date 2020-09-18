@@ -85,18 +85,6 @@
                 Price = price,
             };
 
-            var isDatesAreValid = true;
-
-            if (endDate < startDate)
-            {
-                isDatesAreValid = false;
-            }
-
-            if (!isDatesAreValid)
-            {
-                throw new ValidationException("Датите са невалидни");
-            }
-
             await this.orderRepository.AddAsync(order);
             await this.orderRepository.SaveChangesAsync();
 
@@ -157,18 +145,6 @@
                 CreatedOn = createdOn,
                 Price = price,
             };
-
-            var isDatesAreValid = true;
-
-            if (endDate < startDate)
-            {
-                isDatesAreValid = false;
-            }
-
-            if (!isDatesAreValid)
-            {
-                throw new ValidationException("Датите са невалидни");
-            }
 
             this.orderRepository.Update(order);
             await this.orderRepository.SaveChangesAsync();

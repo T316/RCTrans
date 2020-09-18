@@ -26,6 +26,7 @@
                 <input asp-for="EndDate" />
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
             @if (Model.Vehicle.VehicleSubType.ToString() != "Special")
             {
                 <br />

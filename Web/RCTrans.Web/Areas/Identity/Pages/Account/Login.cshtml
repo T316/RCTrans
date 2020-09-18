@@ -17,7 +17,7 @@
         </div>
         <section>
             <form id="account" method="post">
-                @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
                 <div class="theme-form">
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" />
@@ -32,7 +32,6 @@
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
-                            @*@Html.DisplayNameFor(m => m.Input.RememberMe)*@
                             Остави ме логнат?
                         </label>
                     </div>

@@ -228,3 +228,7 @@ body {
     padding-top: 50px;
     min-height: 50em;
 }
+
+.validation-summary {
+    margin-bottom: 10px;
+}

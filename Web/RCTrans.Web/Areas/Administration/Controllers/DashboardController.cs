@@ -101,8 +101,16 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditOrder(OrderEditInputModel input)
+        public async Task<IActionResult> EditOrder(OrderEditInputModel input, int vehicleId)
         {
+            var vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(vehicleId);
+            input.Vehicle = vehicle;
+
+            if (input.EndDate <= input.StartDate)
+            {
+                this.ModelState.AddModelError(string.Empty, "Датата на връщане трябва да е след датата на вземане.");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);

@@ -21,6 +21,7 @@
     using RCTrans.Services.Data.Interfaces;
     using RCTrans.Services.Mapping;
     using RCTrans.Services.Messaging;
+    using RCTrans.Web.Areas.Identity.Pages.Account;
     using RCTrans.Web.ViewModels;
 
     public class Startup
@@ -39,7 +40,9 @@
                 options => options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
-                .AddRoles<ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddRoles<ApplicationRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<AppErrorDescriber>();
 
             services.Configure<CookiePolicyOptions>(
                 options =>

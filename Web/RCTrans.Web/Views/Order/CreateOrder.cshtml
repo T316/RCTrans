@@ -12,6 +12,9 @@
                 <span class="title-line"><i class="fa fa-car"></i></span>
             </div>
         </div>
+        <div class="theme-form">
+            <h5>@Model.Vehicle.Manufacturer @Model.Vehicle.Model</h5>
+        </div>
         <form method="post">
             <div class="theme-form">
                 <label asp-for="StartDate"></label>
@@ -23,8 +26,10 @@
                 <input asp-for="EndDate" />
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
             @if (Model.Vehicle.VehicleSubType.ToString() != "Special")
             {
+                <br />
                 <div class="theme-form">
                     <label asp-for="CarInsurance">
                         Пълна застраховка (+20 лв/ден)
