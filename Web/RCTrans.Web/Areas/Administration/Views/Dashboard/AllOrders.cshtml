@@ -53,8 +53,15 @@
                                             <p>
                                                 Цена: <strong> @order.Price</strong>
                                             </p>
+
+                                            @{
+                                                var routeValues = new Dictionary<string, string>();
+                                                routeValues.Add("orderId", order.Id.ToString());
+                                                routeValues.Add("vehicleId", order.VehicleId.ToString());
+                                            }
+
                                             <div class="d-flex justify-content-center">
-                                                <a class="btn edit-btn" asp-area="Administration" asp-controller="Dashboard" asp-action="EditOrder" asp-route-id="@order.Id">Промени</a>
+                                                <a class="btn edit-btn" asp-area="Administration" asp-controller="Dashboard" asp-action="EditOrder" asp-all-route-data="@routeValues">Промени</a>
                                                 <a class="btn delete-btn" asp-area="Administration" asp-controller="Dashboard" asp-action="DeleteOrder" asp-route-id="@order.Id">Отмени</a>
                                             </div>
                                         </div>

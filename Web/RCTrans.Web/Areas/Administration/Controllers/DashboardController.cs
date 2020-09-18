@@ -92,10 +92,10 @@
             return this.View(viewModel);
         }
 
-        public IActionResult EditOrder(int id)
+        public IActionResult EditOrder(int orderId, int vehicleId)
         {
-            var viewModel = this.ordersService.GetOrderById<OrderEditInputModel>(id);
-            viewModel.Vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(id);
+            var viewModel = this.ordersService.GetOrderById<OrderEditInputModel>(orderId);
+            viewModel.Vehicle = this.vehiclesService.GetVehicleById<VehicleViewModel>(vehicleId);
 
             return this.View(viewModel);
         }
