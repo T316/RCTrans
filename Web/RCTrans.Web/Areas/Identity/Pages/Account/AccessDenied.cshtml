@@ -1,0 +1,19 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Достъп отказан";
+}
+
+<div class="row pages-padding">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="col-lg-12">
+            <div class="section-title  text-center">
+                <h1 class="text-danger">@ViewData["Title"]</h1>
+                <span class="title-line"><i class="fa fa-car"></i></span>
+                <p class="text-danger">Вие нямате достъп до ресурсите, които се опитвате да достъпите.</p>
+                <img class="page-img" src="https://www.oncologyanalytics.com/wp-content/uploads/2018/06/accessdenied.png" alt="Access denied" />
+            </div>
+        </div>
+    </div>
+</div>

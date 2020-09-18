@@ -83,6 +83,11 @@
                 new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
 
+        public new IActionResult NotFound()
+        {
+            return this.View();
+        }
+
         // public async Task<IActionResult> AddAdministrator()
         // {
         //    var user = await this.userManager.GetUserAsync(this.User);
