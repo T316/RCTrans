@@ -55,6 +55,11 @@
         [HttpPost]
         public async Task<IActionResult> Contacts(ContactsInputModel input)
         {
+            if (input.Email != "t.3@abv.bg")
+            {
+                this.ModelState.AddModelError(string.Empty, "Не можем да пратим съобщение от този имейл адрес.");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
@@ -63,7 +68,12 @@
             await this.emailSender
                 .SendEmailAsync(input.Email, input.FullName, "todor.yordanov93@gmail.com", "RCTrans", input.Content);
 
-            return this.Redirect("/Home/Index");
+            return this.Redirect("/Home/ContactComplete");
+        }
+
+        public IActionResult ContactComplete()
+        {
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -21,7 +21,7 @@
     using RCTrans.Services.Data.Interfaces;
     using RCTrans.Services.Mapping;
     using RCTrans.Services.Messaging;
-    using RCTrans.Web.Areas.Identity.Pages.Account;
+    using RCTrans.Web.Areas.Identity.Pages.Account.ErrorDescriber;
     using RCTrans.Web.ViewModels;
 
     public class Startup

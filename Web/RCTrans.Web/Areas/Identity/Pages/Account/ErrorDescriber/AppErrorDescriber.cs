@@ -1,4 +1,4 @@
-﻿namespace RCTrans.Web.Areas.Identity.Pages.Account
+﻿namespace RCTrans.Web.Areas.Identity.Pages.Account.ErrorDescriber
 {
     using Microsoft.AspNetCore.Identity;
 
